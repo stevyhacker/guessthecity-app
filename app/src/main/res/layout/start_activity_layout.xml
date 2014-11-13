@@ -1,5 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -19,32 +21,71 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/nature_background"
+        android:background="@color/color_green_sea"
         android:layout_below="@id/logoBanerImgView"
         android:layout_above="@+id/donatoriBanerImgView">
 
-        <Button
+        <TextView
+            android:id="@+id/quizTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pokreni kviz"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:layout_margin="20dp"
+            android:text="Kviz koliko znaš o prirodi?"
+            android:layout_centerHorizontal="true" />
+
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Pokreni kviz "
+            android:layout_below="@id/quizTitleTextView"
             android:id="@+id/startQuizButton"
             android:textSize="18sp"
-            android:padding="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true" />
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp" />
 
-        <Button
+        <info.hoang8f.widget.FButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="O projektu"
+            android:text="   Rezultati   "
+            android:id="@+id/highScoreButton"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/startQuizButton"
+            android:layout_centerHorizontal="true"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  O projektu  "
             android:id="@+id/aboutProjectButton"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:padding="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/startQuizButton"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/highScoreButton"
+            android:layout_centerHorizontal="true"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp" />
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <ImageView
