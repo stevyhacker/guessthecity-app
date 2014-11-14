@@ -40,6 +40,7 @@ Put ka osnivanju\n
         android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:id="@+id/aboutTextView"
             android:textColor="@color/white" />
     </ScrollView>
 

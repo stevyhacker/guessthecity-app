@@ -20,7 +20,8 @@
         <activity
             android:name="me.montecode.pmcg.kvizoprirodi.MainQuizActivity"
             android:label="@string/title_activity_main_quiz"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity" >
+            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
@@ -28,7 +29,8 @@
         <activity
             android:name="me.montecode.pmcg.kvizoprirodi.HighScoreActivity"
             android:label="@string/title_activity_high_score"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity" >
+            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
@@ -36,7 +38,8 @@
         <activity
             android:name="me.montecode.pmcg.kvizoprirodi.AboutProjectActivity"
             android:label="@string/title_activity_about_project"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity" >
+            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 
 public class AboutProjectActivity extends Activity {
 
@@ -13,6 +16,10 @@ public class AboutProjectActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.about_project_activity_layout);
+
+        YoYo.with(Techniques.FadeInUp)
+                .duration(1200)
+                .playOn(findViewById(R.id.aboutTextView));
 
     }
 
