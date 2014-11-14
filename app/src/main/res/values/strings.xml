@@ -4,5 +4,8 @@
     <string name="app_name">Kviz koliko znaš o prirodi</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main_quiz">MainQuizActivity</string>
+    <string name="title_activity_high_score">HighScoreActivity</string>
+    <string name="title_activity_about_project">AboutProjectActivity</string>
 
 </resources>

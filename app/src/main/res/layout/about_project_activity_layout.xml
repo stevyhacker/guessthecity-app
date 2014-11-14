@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/color_green_sea"
+    tools:context="me.montecode.pmcg.kvizoprirodi.AboutProjectActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoBanerAboutImgView"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_baner"
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_below="@id/logoBanerAboutImgView"
+        android:layout_above="@+id/donatoriBanerAboutImgView">
+
+        <TextView
+            android:text="
+Put ka osnivanju\n
+
+ \nPočetak razvoja Prirodnjačkog muzeja Crne Gore seže u 1961. godinu kada je uredbom Vlade Crne Gore osnovana Prirodnjačka zbirka. Iste te godine osnovan je i Republički zavod za zaštitu prirode kome je priključena i Prirodnjačka zbirka. \n
+
+ \nU to vrijeme, nastojalo se prije svega stvoriti bazu eksponata za izlaganje, koji bi bili atraktivni za posjetioce. To je uspješno obavljeno i zbirka je sadržala više stotina prepariranih ptica, prije svega sa Skadarskog jezera, ali i dosta drugih eksponata. Posebnu vrijednost je činio herbar balkanskih zemalja. Zbirka je komunicirala sa javnošću preko stalne izložbe u Podgorici, učešća na sajmovima lova i ribolova kao i preko naučne publikacije &quot;Glasnik republičkog zavoda za zaštitu prirode - Prirodnjačkog muzeja &quot; koju je Zavod izdavao. \n
+   \nOsnovna mana zbirke bila je nedovoljna naučna obrada svih eksponata, a naročito je bila zanemarena dokumentacija o samoj zbirci.
+
+    \nZbirka je funkcionisala sve do zemljotresa 1979. godine kada je zgrada u kojoj je bila smještena teško oštećena. Iako su direktne štete na zbirci bile male, kasnije, zbog neadekvatnog prostora gdje je čuvana i čestog seljenja uništeno je oko 50% organskih preparata, prije svega ptica. U potpunosti je sačuvan herbar i geološko-paleontološke kolekcije. \n
+
+    \nZbirka je 1985. godine vraćena u saniranu zgradu Zavoda za zaštitu prirode, pripremljen je prostor za novu izložbu, ali ona nije realizovana. Zbirka je i dalje propadala i tek 1995. godine, njeni očuvani ostaci postali su jezgro Prirodnjačkog muzeja Crne Gore, izuzev herabra koji je ostao u Zavodu za zaštitu prirode."
+        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/donatoriBanerAboutImgView"
+        android:scaleType="centerInside"
+        android:src="@drawable/donatori_baner"
+        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

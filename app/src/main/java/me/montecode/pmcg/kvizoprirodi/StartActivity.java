@@ -1,11 +1,17 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
+import info.hoang8f.widget.FButton;
 
-public class StartActivity extends Activity {
+
+public class StartActivity extends Activity implements View.OnClickListener {
+
+    private FButton startQuizButton, highScoreButton, aboutProjectButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +20,32 @@ public class StartActivity extends Activity {
 
         setContentView(R.layout.start_activity_layout);
 
+        startQuizButton = (FButton) findViewById(R.id.startQuizButton);
+        highScoreButton = (FButton) findViewById(R.id.highScoreButton);
+        aboutProjectButton = (FButton) findViewById(R.id.aboutProjectButton);
+
+        startQuizButton.setOnClickListener(this);
+        highScoreButton.setOnClickListener(this);
+        aboutProjectButton.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.startQuizButton:
+                Intent intent1 = new Intent(this, MainQuizActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.highScoreButton:
+                Intent intent2 = new Intent(this, HighScoreActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.aboutProjectButton:
+                Intent intent3 = new Intent(this, AboutProjectActivity.class);
+                startActivity(intent3);
+                break;
+        }
     }
 
 //TODO EVERYTHING
