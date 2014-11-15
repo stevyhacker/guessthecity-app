@@ -12,7 +12,8 @@ import java.util.Random;
 public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
     private int previousQuestionId;
-
+    TextView questionTextView, answerTextView, option1TextView,option2TextView,option3TextView;
+    private QuestionItem currentQuestionItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,19 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.main_quiz_activity_layout);
         db = new DatabaseHelper(getApplicationContext());
 
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(getRandomQuestion().question);
+        questionTextView = (TextView) findViewById(R.id.questionTextView);
+        answerTextView = (TextView) findViewById(R.id.answerTextView);
+        option1TextView = (TextView) findViewById(R.id.option1TextView);
+        option2TextView = (TextView) findViewById(R.id.option2TextView);
+        option3TextView = (TextView) findViewById(R.id.option3TextView);
+
+        currentQuestionItem = getRandomQuestion();
+
+        questionTextView.setText(currentQuestionItem.question);
+        answerTextView.setText(currentQuestionItem.answer);
+        option1TextView.setText(currentQuestionItem.option1);
+        option2TextView.setText(currentQuestionItem.option2);
+        option3TextView.setText(currentQuestionItem.option3);
 
     }
 

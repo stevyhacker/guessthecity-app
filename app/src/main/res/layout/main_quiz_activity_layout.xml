@@ -13,10 +13,50 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView"
+        android:id="@+id/questionTextView"
         android:textSize="30sp"
+        tools:text="Neki Sample Text"
         android:textColor="@color/white"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answerTextView"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/questionTextView"
+        android:textColor="@color/white"
+        tools:text="Neki Sample Text"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/option1TextView"
+        android:textSize="20sp"
+        android:layout_below="@+id/answerTextView"
+        android:textColor="@color/white"
+        tools:text="Neki Sample Text"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/option2TextView"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        tools:text="Neki Sample Text"
         android:layout_centerInParent="true"
-         />
+        android:layout_below="@+id/option1TextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/option3TextView"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        tools:text="Neki Sample Text"
+        android:layout_below="@+id/option2TextView"
+        android:layout_centerInParent="true" />
 </RelativeLayout>
