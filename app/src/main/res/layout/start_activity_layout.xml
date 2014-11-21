@@ -29,7 +29,8 @@
             android:id="@+id/quizTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="30sp"
+            android:textStyle="italic"
             android:textColor="@color/white"
             android:layout_margin="20dp"
             android:text="Kviz koliko znaš o prirodi?"
@@ -37,12 +38,12 @@
 
 
         <info.hoang8f.widget.FButton
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:text=" Pokreni kviz "
             android:layout_below="@id/quizTitleTextView"
             android:id="@+id/startQuizButton"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
@@ -53,13 +54,13 @@
             fbutton:cornerRadius="5dp" />
 
         <info.hoang8f.widget.FButton
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:text="   Rezultati   "
             android:id="@+id/highScoreButton"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textColor="@color/white"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@+id/startQuizButton"
             android:layout_centerHorizontal="true"
             fbutton:buttonColor="@color/color_emerald"
@@ -69,14 +70,14 @@
             fbutton:cornerRadius="5dp" />
 
         <info.hoang8f.widget.FButton
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:text="  O projektu  "
             android:id="@+id/aboutProjectButton"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textColor="@color/white"
             android:padding="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@+id/highScoreButton"
             android:layout_centerHorizontal="true"
             fbutton:buttonColor="@color/color_emerald"

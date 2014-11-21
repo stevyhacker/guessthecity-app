@@ -2,4 +2,22 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="small_ring_width">80dp</dimen>
+    <dimen name="small_ring_height">80dp</dimen>
+    <dimen name="small_ring_title_text_size">15sp</dimen>
+    <dimen name="small_ring_subtitle_text_size">12sp</dimen>
+    <dimen name="innerCircleRadius">100dp</dimen>
+    <dimen name="full_ring_width">-2dp</dimen>
+    <dimen name="right_side_from_ring_padding_left">10dp</dimen>
+    <dimen name="optionTextViewPadding">5dp</dimen>
+    <dimen name="strokeWidthOptionTextView">1dp</dimen>
+    <dimen name="answerOptionTextSize">16sp</dimen>
+    <dimen name="timerCircleSize">50dp</dimen>
+    <dimen name="timerCircleTextSize">24sp</dimen>
+    <dimen name="textViewButtonTextSize">18sp</dimen>
+    <dimen name="textViewButtonWidth">150dp</dimen>
+    <dimen name="bottomMarginTextViewButton">10dp</dimen>
+    <dimen name="buttonTextViewPadding">5dp</dimen>
+    <dimen name="scoreTextSize">23sp</dimen>
+    <dimen name="gameStatusTextSize">16sp</dimen>
 </resources>

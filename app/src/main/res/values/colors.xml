@@ -22,4 +22,18 @@
     <color name="color_silver">#bdc3c7</color>
     <color name="color_concrete">#95a5a6</color>
     <color name="color_asbestos">#7f8c8d</color>
+
+    <color name="white_almost">#ffebebeb</color>
+    <color name="white_true">#ffffffff</color>
+    <color name="green_background">#54AA0B</color>
+    <color name="green_light">#ff99cc00</color>
+    <color name="red_light">#ffff4444</color>
+    <color name="red_field">#7E0000</color>
+    <color name="red_true">#FF0000</color>
+    <color name="gray_ring">#BBBBBB</color>
+    <color name="gray_ring_divider_line">#7E7E7E</color>
+    <color name="yellow_text">#FFF71E</color>
+    <color name="blue_select">#67FEFF</color>
+    <color name="black">#000000</color>
+    <color name="blue_question_select">#0A41CC</color>
 </resources>
