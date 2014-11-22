@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import info.hoang8f.widget.FButton;
+
 
 public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
     private int previousQuestionId;
     TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
+    FButton nextQuestionButton;
     private QuestionItem currentQuestionItem;
     private String currentQuestionAnswer;
     private int currentQuestionAnswerPosition;
@@ -38,71 +41,19 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option3TextView = (TextView) findViewById(R.id.option3TextView);
         questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
         timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
-
-        currentQuestionItem = getRandomQuestion();
-        currentQuestionAnswer = currentQuestionItem.answer;
-
-        questionTextView.setText(currentQuestionItem.question);
-
-        option1TextView.setBackgroundResource(R.drawable.answeroption_drawable);
-        option2TextView.setBackgroundResource(R.drawable.answeroption_drawable);
-        option3TextView.setBackgroundResource(R.drawable.answeroption_drawable);
-        option4TextView.setBackgroundResource(R.drawable.answeroption_drawable);
-
+        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
         option3TextView.setOnClickListener(this);
         option4TextView.setOnClickListener(this);
+        nextQuestionButton.setOnClickListener(this);
 
         questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
         timeCounterTextView.setText(String.valueOf(secondsCounter));
 
-        randomSetTextViews();
+        setNewQuestion();
         startTimer();
-    }
 
-    private void startTimer() {
-        timeCounterHandler = new Handler();
-        timeCounterHandler.postDelayed(secondsRunnable, 1000);
-        secondsRunnable = new Runnable() {
-            @Override
-            public void run() {
-                timeCounterTextView.setText(String.valueOf(secondsCounter));
-                secondsCounter++;
-                timeCounterHandler.postDelayed(secondsRunnable, 1000);
-            }
-        };
-    }
-
-    private void randomSetTextViews() {
-        Random r = new Random();
-        currentQuestionAnswerPosition = r.nextInt(4) + 1;
-        switch (currentQuestionAnswerPosition) {
-            case 1:
-                option1TextView.setText(currentQuestionAnswer);
-                option2TextView.setText(currentQuestionItem.option1);
-                option3TextView.setText(currentQuestionItem.option3);
-                option4TextView.setText(currentQuestionItem.option2);
-                break;
-            case 2:
-                option2TextView.setText(currentQuestionAnswer);
-                option1TextView.setText(currentQuestionItem.option1);
-                option3TextView.setText(currentQuestionItem.option3);
-                option4TextView.setText(currentQuestionItem.option2);
-                break;
-            case 3:
-                option3TextView.setText(currentQuestionAnswer);
-                option2TextView.setText(currentQuestionItem.option1);
-                option1TextView.setText(currentQuestionItem.option2);
-                option4TextView.setText(currentQuestionItem.option3);
-                break;
-            case 4:
-                option4TextView.setText(currentQuestionAnswer);
-                option2TextView.setText(currentQuestionItem.option3);
-                option3TextView.setText(currentQuestionItem.option2);
-                option1TextView.setText(currentQuestionItem.option1);
-                break;
-        }
     }
 
     @Override
@@ -136,7 +87,73 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                     checkAnswer(option4TextView.getText(), option4TextView);
                 }
                 break;
+            case R.id.nextQuestionButton:
+                questionsCounter++;
+                questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
+                setNewQuestion();
+                break;
 
+        }
+    }
+
+    private void setNewQuestion() {
+        currentQuestionItem = getRandomQuestion();
+        currentQuestionAnswer = currentQuestionItem.answer;
+
+        questionTextView.setText(currentQuestionItem.question);
+        randomSetTextViews();
+
+        option1TextView.setBackgroundResource(R.drawable.answeroption_drawable);
+        option2TextView.setBackgroundResource(R.drawable.answeroption_drawable);
+        option3TextView.setBackgroundResource(R.drawable.answeroption_drawable);
+        option4TextView.setBackgroundResource(R.drawable.answeroption_drawable);
+        answerOptionClicked = false;
+    }
+
+    private void startTimer() {
+
+        secondsRunnable = new Runnable() {
+            @Override
+            public void run() {
+                timeCounterTextView.setText(String.valueOf(secondsCounter));
+                secondsCounter++;
+                timeCounterHandler.postDelayed(secondsRunnable, 1000);
+            }
+        };
+
+        timeCounterHandler = new Handler();
+        timeCounterHandler.postDelayed(secondsRunnable, 1000);
+
+    }
+
+    private void randomSetTextViews() {
+        Random r = new Random();
+        currentQuestionAnswerPosition = r.nextInt(4) + 1;
+        switch (currentQuestionAnswerPosition) {
+            case 1:
+                option1TextView.setText(currentQuestionAnswer);
+                option2TextView.setText(currentQuestionItem.option1);
+                option3TextView.setText(currentQuestionItem.option3);
+                option4TextView.setText(currentQuestionItem.option2);
+                break;
+            case 2:
+                option2TextView.setText(currentQuestionAnswer);
+                option1TextView.setText(currentQuestionItem.option1);
+                option3TextView.setText(currentQuestionItem.option3);
+                option4TextView.setText(currentQuestionItem.option2);
+                break;
+            case 3:
+                option3TextView.setText(currentQuestionAnswer);
+                option2TextView.setText(currentQuestionItem.option1);
+                option1TextView.setText(currentQuestionItem.option2);
+                option4TextView.setText(currentQuestionItem.option3);
+                break;
+            case 4:
+                option4TextView.setText(currentQuestionAnswer);
+                option2TextView.setText(currentQuestionItem.option3);
+                option3TextView.setText(currentQuestionItem.option2);
+                option1TextView.setText(currentQuestionItem.option1);
+                break;
         }
     }
 
@@ -202,7 +219,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         return db.getQuestion(randomQuestionId);
     }
-
 
 //  MENU Code
 //   @Override
