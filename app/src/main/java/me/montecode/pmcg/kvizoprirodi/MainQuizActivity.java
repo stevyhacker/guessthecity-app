@@ -2,6 +2,7 @@ package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -13,10 +14,15 @@ import java.util.Random;
 public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
     private int previousQuestionId;
-    TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView;
+    TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
     private QuestionItem currentQuestionItem;
     private String currentQuestionAnswer;
     private int currentQuestionAnswerPosition;
+    private boolean answerOptionClicked = false;
+    private Handler timeCounterHandler;
+    private int secondsCounter = 0;
+    int questionsCounter = 1;
+    private Runnable secondsRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option1TextView = (TextView) findViewById(R.id.option1TextView);
         option2TextView = (TextView) findViewById(R.id.option2TextView);
         option3TextView = (TextView) findViewById(R.id.option3TextView);
+        questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
+        timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
 
         currentQuestionItem = getRandomQuestion();
         currentQuestionAnswer = currentQuestionItem.answer;
@@ -46,14 +54,30 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option3TextView.setOnClickListener(this);
         option4TextView.setOnClickListener(this);
 
-        randomSetTextViews();
+        questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
+        timeCounterTextView.setText(String.valueOf(secondsCounter));
 
+        randomSetTextViews();
+        startTimer();
+    }
+
+    private void startTimer() {
+        timeCounterHandler = new Handler();
+        timeCounterHandler.postDelayed(secondsRunnable, 1000);
+        secondsRunnable = new Runnable() {
+            @Override
+            public void run() {
+                timeCounterTextView.setText(String.valueOf(secondsCounter));
+                secondsCounter++;
+                timeCounterHandler.postDelayed(secondsRunnable, 1000);
+            }
+        };
     }
 
     private void randomSetTextViews() {
         Random r = new Random();
         currentQuestionAnswerPosition = r.nextInt(4) + 1;
-        switch (currentQuestionAnswerPosition){
+        switch (currentQuestionAnswerPosition) {
             case 1:
                 option1TextView.setText(currentQuestionAnswer);
                 option2TextView.setText(currentQuestionItem.option1);
@@ -85,29 +109,85 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.option1TextView:
-                option1TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
-                checkAnswer(option1TextView.getText());
+                if (!answerOptionClicked) {
+                    answerOptionClicked = true;
+                    option1TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
+                    checkAnswer(option1TextView.getText(), option1TextView);
+                }
                 break;
             case R.id.option2TextView:
-                option2TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
-                checkAnswer(option2TextView.getText());
+                if (!answerOptionClicked) {
+                    answerOptionClicked = true;
+                    option2TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
+                    checkAnswer(option2TextView.getText(), option2TextView);
+                }
                 break;
             case R.id.option3TextView:
-                option3TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
-                checkAnswer(option3TextView.getText());
+                if (!answerOptionClicked) {
+                    answerOptionClicked = true;
+                    option3TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
+                    checkAnswer(option3TextView.getText(), option3TextView);
+                }
                 break;
             case R.id.option4TextView:
-                option4TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
-                checkAnswer(option4TextView.getText());
+                if (!answerOptionClicked) {
+                    answerOptionClicked = true;
+                    option4TextView.setBackgroundResource(R.drawable.answeroption_blue_drawable);
+                    checkAnswer(option4TextView.getText(), option4TextView);
+                }
                 break;
 
         }
     }
 
-    private void checkAnswer(CharSequence text) {
+    private boolean checkAnswer(CharSequence text, final TextView answerOption) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+
+            }
+        }, 800);
         if (text.equals(currentQuestionAnswer)) {
             Toast.makeText(this, "Tačan odgovor", Toast.LENGTH_SHORT).show();
+//            highlightCorrectAnswer();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    answerOption.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                }
+            }, 1000);
+            return true;
+        } else {
+            Toast.makeText(this, "Netačan odgovor", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    answerOption.setBackgroundResource(R.drawable.answeroption_red_drawable);
+                    highlightCorrectAnswer();
+                }
+            }, 1000);
+
+            return false;
         }
+    }
+
+    private void highlightCorrectAnswer() {
+        switch (currentQuestionAnswerPosition) {
+            case 1:
+                option1TextView.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                break;
+            case 2:
+                option2TextView.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                break;
+            case 3:
+                option3TextView.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                break;
+            case 4:
+                option4TextView.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                break;
+        }
+
     }
 
     private QuestionItem getRandomQuestion() {
@@ -124,7 +204,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     }
 
 
-//    @Override
+//  MENU Code
+//   @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.
 //        getMenuInflater().inflate(R.menu.main_quiz_menu, menu);
