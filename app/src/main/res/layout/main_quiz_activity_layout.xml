@@ -94,20 +94,20 @@
         android:textColor="@color/white"
         android:layout_toLeftOf="@id/questionCounterTextView" />
 
-    <info.hoang8f.widget.FButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text=" Dalje "
-        android:textSize="28sp"
-        android:textColor="@color/white"
-        android:id="@+id/nextQuestionButton"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="5dp"
-        android:layout_margin="10dp" />
+    <!--<info.hoang8f.widget.FButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:text=" Dalje "-->
+        <!--android:textSize="28sp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:id="@+id/nextQuestionButton"-->
+        <!--fbutton:buttonColor="@color/color_emerald"-->
+        <!--fbutton:shadowColor="@color/color_nephritis"-->
+        <!--fbutton:shadowEnabled="true"-->
+        <!--fbutton:shadowHeight="5dp"-->
+        <!--fbutton:cornerRadius="5dp"-->
+        <!--android:layout_margin="10dp" />-->
 
 </RelativeLayout>

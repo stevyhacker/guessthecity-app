@@ -1,8 +1,11 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -17,15 +20,20 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
     private int previousQuestionId;
     TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
-    FButton nextQuestionButton;
+    //    FButton nextQuestionButton;
     private QuestionItem currentQuestionItem;
     private String currentQuestionAnswer;
     private int currentQuestionAnswerPosition;
     private boolean answerOptionClicked = false;
     private Handler timeCounterHandler;
     private int secondsCounter = 0;
-    int questionsCounter = 1;
+    int questionsCounter = 0;
+    int correctAnswers = 0;
     private Runnable secondsRunnable;
+    AlertDialog newGameDialog;
+    View newGameDialogView;
+    TextView scoreTimeTextView, scorePointsTextView;
+    FButton newGameButton, highScoresButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_quiz_activity_layout);
         db = new DatabaseHelper(getApplicationContext());
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         questionTextView = (TextView) findViewById(R.id.questionTextView);
         option4TextView = (TextView) findViewById(R.id.option4TextView);
@@ -41,15 +50,27 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option3TextView = (TextView) findViewById(R.id.option3TextView);
         questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
         timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
-        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
+//        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
         option3TextView.setOnClickListener(this);
         option4TextView.setOnClickListener(this);
-        nextQuestionButton.setOnClickListener(this);
+//        nextQuestionButton.setOnClickListener(this);
 
         questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
         timeCounterTextView.setText(String.valueOf(secondsCounter));
+
+        newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
+        scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
+        scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
+        newGameButton = (FButton) newGameDialogView.findViewById(R.id.newGameButton);
+        highScoresButton = (FButton) newGameDialogView.findViewById(R.id.highScoresButton);
+
+        newGameButton.setOnClickListener(this);
+        highScoresButton.setOnClickListener(this);
+
+        newGameDialog = new AlertDialog.Builder(this).create();
+        newGameDialog.setView(newGameDialogView, 0, 0, 0, 0);
 
         setNewQuestion();
         startTimer();
@@ -87,16 +108,17 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                     checkAnswer(option4TextView.getText(), option4TextView);
                 }
                 break;
-            case R.id.nextQuestionButton:
-                questionsCounter++;
-                questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
-                setNewQuestion();
-                break;
+//            case R.id.nextQuestionButton:
+//                setNewQuestion();
+//                break;
 
         }
     }
 
     private void setNewQuestion() {
+        questionsCounter++;
+        questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
+
         currentQuestionItem = getRandomQuestion();
         currentQuestionAnswer = currentQuestionItem.answer;
 
@@ -167,11 +189,21 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         }, 800);
         if (text.equals(currentQuestionAnswer)) {
             Toast.makeText(this, "Tačan odgovor", Toast.LENGTH_SHORT).show();
-//            highlightCorrectAnswer();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     answerOption.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            correctAnswers++;
+                            if (questionsCounter < 10) {
+                                setNewQuestion();
+                            } else {
+                                showNewGameDialog();
+                            }
+                        }
+                    }, 1700);
                 }
             }, 1000);
             return true;
@@ -182,11 +214,27 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 public void run() {
                     answerOption.setBackgroundResource(R.drawable.answeroption_red_drawable);
                     highlightCorrectAnswer();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (questionsCounter < 10) {
+                                setNewQuestion();
+                            } else {
+                                showNewGameDialog();
+                            }
+                        }
+                    }, 1700);
                 }
             }, 1000);
 
             return false;
         }
+    }
+
+    private void showNewGameDialog() {
+        scoreTimeTextView.setText("Vrijeme za koje ste odgovorili na pitanja je: " + String.valueOf(secondsCounter) + " sekundi.");
+        scorePointsTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + " pitanja.");
+        newGameDialog.show();
     }
 
     private void highlightCorrectAnswer() {
