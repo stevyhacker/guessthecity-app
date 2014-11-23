@@ -3,6 +3,7 @@ package me.montecode.pmcg.kvizoprirodi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -108,11 +109,29 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                     checkAnswer(option4TextView.getText(), option4TextView);
                 }
                 break;
+            case R.id.newGameButton:
+                resetGame();
+                break;
+            case R.id.highScoresButton:
+                Intent intent2 = new Intent(this, HighScoreActivity.class);
+                startActivity(intent2);
+                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+                break;
 //            case R.id.nextQuestionButton:
 //                setNewQuestion();
 //                break;
 
         }
+    }
+
+    private void resetGame() {
+        secondsCounter = 0;
+        questionsCounter = 0;
+        correctAnswers = 0;
+        answerOptionClicked = false;
+        setNewQuestion();
+        startTimer();
+        newGameDialog.cancel();
     }
 
     private void setNewQuestion() {
@@ -233,7 +252,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
     private void showNewGameDialog() {
         scoreTimeTextView.setText("Vrijeme za koje ste odgovorili na pitanja je: " + String.valueOf(secondsCounter) + " sekundi.");
-        scorePointsTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + " pitanja.");
+        scorePointsTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/10" + " pitanja.");
         newGameDialog.show();
     }
 
