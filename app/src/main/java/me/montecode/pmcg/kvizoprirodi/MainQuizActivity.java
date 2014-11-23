@@ -12,6 +12,9 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.Random;
 
 import info.hoang8f.widget.FButton;
@@ -199,19 +202,22 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     }
 
     private boolean checkAnswer(CharSequence text, final TextView answerOption) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-
-            }
-        }, 800);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//            }
+//        }, 800);
         if (text.equals(currentQuestionAnswer)) {
             Toast.makeText(this, "Tačan odgovor", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     answerOption.setBackgroundResource(R.drawable.answeroption_green_drawable);
+                    YoYo.with(Techniques.Flash)
+                            .duration(500)
+                            .playOn(answerOption);
+
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -232,6 +238,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 @Override
                 public void run() {
                     answerOption.setBackgroundResource(R.drawable.answeroption_red_drawable);
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .playOn(answerOption);
                     highlightCorrectAnswer();
                     new Handler().postDelayed(new Runnable() {
                         @Override
