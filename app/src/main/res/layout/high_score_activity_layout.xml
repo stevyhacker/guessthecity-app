@@ -12,16 +12,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/questionTextView"
+        android:id="@+id/titleScoresTextView"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:textColor="@color/white"
         android:layout_centerInParent="true"
-        android:text="Najbolji rezultati" />
+        android:text="Najbolji rezultati:" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scoresListView"
-        android:layout_below="@+id/questionTextView" />
+        android:layout_below="@id/titleScoresTextView" />
 </RelativeLayout>

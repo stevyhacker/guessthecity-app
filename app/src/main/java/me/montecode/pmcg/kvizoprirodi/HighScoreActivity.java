@@ -2,8 +2,11 @@ package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,8 +34,18 @@ public class HighScoreActivity extends Activity {
         loadScores();
         highScoreListView.setAdapter(adapter);
 
+        TextView titleScoresTextView = (TextView) findViewById(R.id.titleScoresTextView);
         TextView emptyText = new TextView(this);
         emptyText.setText("Još uvjek nema rezultata.");
+        emptyText.setTextColor(getResources().getColor(R.color.white));
+        emptyText.setTextSize(25);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.BELOW,titleScoresTextView.getId());
+        params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+        emptyText.setLayoutParams(params);
+        emptyText.setPadding(10,10,10,10);
+//        emptyText.setVisibility(View.GONE);
+        ((ViewGroup)highScoreListView.getParent()).addView(emptyText);
         highScoreListView.setEmptyView(emptyText);
 
     }
@@ -41,10 +54,16 @@ public class HighScoreActivity extends Activity {
         highScoreValues.clear();
 
         String allInformation = PMCGKvizZnanjaApp.preferencesHelper.getString("scores", "");
+        if(allInformation == null || allInformation.equalsIgnoreCase(""))
+        {
 
-        if (allInformation != null || !allInformation.equalsIgnoreCase("")) {
+        }
+        else {
 
             for (String returnvalue : allInformation.split(":;:")) {
+
+                Log.e("PREFERENCES","returnvalue  " + returnvalue);
+
                 name = "";
                 result = "";
                 date = "";
@@ -52,8 +71,13 @@ public class HighScoreActivity extends Activity {
                 String[] token = returnvalue.split(",:,");
 
                 name = token[0];
+                Log.e("PREFERENCES","name " + name);
+
                 result = token[1];
+                Log.e("PREFERENCES","result " + result);
+
                 date = token[2];
+                Log.e("PREFERENCES","date " + date);
 
                 ScoreItem item = new ScoreItem();
                 item.name = name;

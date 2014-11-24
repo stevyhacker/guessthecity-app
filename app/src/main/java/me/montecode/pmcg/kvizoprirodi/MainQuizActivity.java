@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -40,7 +41,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     View newGameDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton;
-    String dateTimeFormat = "dd.MM.yyyy HH:mm:ss";
+    String dateTimeFormat = "dd.MM.yyyy HH:mm";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -309,11 +310,15 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         if(allInfo.equalsIgnoreCase("") || allInfo == null)
         {
-            allInfo = "Stevan" + ",:," + String.valueOf(questionsCounter*secondsCounter) + ",:," + "Vrijeme " + simpleDateFormat.format(dateTime);
+            allInfo = "Stevan" + ",:," + String.valueOf((correctAnswers*100)/secondsCounter) + ",:,"  + simpleDateFormat.format(dateTime);
+            Log.e("PREFERENCES", "allInfo " + allInfo);
+
         }
         else
         {
-            allInfo += ":;:" + "Stevan" + ",:," + String.valueOf(questionsCounter*secondsCounter) + ",:," + " Vrijeme " + simpleDateFormat.format(dateTime);
+            allInfo += ":;:" + "Stevan" + ",:," + String.valueOf((correctAnswers*100)/secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+            Log.e("PREFERENCES", "allInfo " + allInfo);
+
         }
         PMCGKvizZnanjaApp.preferencesHelper.putString("scores", allInfo);
     }

@@ -12,24 +12,23 @@ import java.util.ArrayList;
 /**
  * Created by stevyhacker on 24.11.14..
  */
-public class AdapterForHighScoreList extends ArrayAdapter<ScoreItem>{
+public class AdapterForHighScoreList extends ArrayAdapter<ScoreItem> {
 
     private Context context;
     private ArrayList<ScoreItem> highScoreValues;
 
     public AdapterForHighScoreList(Context context, ArrayList<ScoreItem> highScoreValues) {
-        super(context, R.layout.high_score_list_item_layout,highScoreValues);
+        super(context, R.layout.high_score_list_item_layout, highScoreValues);
         this.highScoreValues = highScoreValues;
         this.context = context;
     }
 
     @Override
-    public int getCount(){
+    public int getCount() {
         return highScoreValues.size();
     }
 
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.high_score_list_item_layout, parent, false);
 
@@ -37,10 +36,11 @@ public class AdapterForHighScoreList extends ArrayAdapter<ScoreItem>{
 
         TextView scoreNameTextView = (TextView) view.findViewById(R.id.scoreNameTextView);
         TextView scoreResultTextView = (TextView) view.findViewById(R.id.scoreResultTextView);
+        TextView scoreDateTextView = (TextView) view.findViewById(R.id.scoreDateTextView);
 
         scoreNameTextView.setText(score.name);
         scoreResultTextView.setText(score.result);
-
+        scoreDateTextView.setText(score.date);
 
         return view;
 
