@@ -3,9 +3,19 @@ package me.montecode.pmcg.kvizoprirodi;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public class HighScoreActivity extends Activity {
+
+
+    ArrayList<ScoreItem> highScoreValues;
+    ListView highScoreListView;
+    AdapterForHighScoreList adapter;
+    private String name, result, date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +24,48 @@ public class HighScoreActivity extends Activity {
 
         setContentView(R.layout.high_score_activity_layout);
 
-        //TODO Add list view of high scores and animate it
+        highScoreListView = (ListView) findViewById(R.id.scoresListView);
+        highScoreValues = new ArrayList<ScoreItem>();
+
+        adapter = new AdapterForHighScoreList(this, highScoreValues);
+        loadScores();
+        highScoreListView.setAdapter(adapter);
+
+        TextView emptyText = new TextView(this);
+        emptyText.setText("Još uvjek nema rezultata.");
+        highScoreListView.setEmptyView(emptyText);
+
+    }
+
+    private void loadScores() {
+        highScoreValues.clear();
+
+        String allInformation = PMCGKvizZnanjaApp.preferencesHelper.getString("scores", "");
+
+        if (allInformation != null || !allInformation.equalsIgnoreCase("")) {
+
+            for (String returnvalue : allInformation.split(":;:")) {
+                name = "";
+                result = "";
+                date = "";
+
+                String[] token = returnvalue.split(",:,");
+
+                name = token[0];
+                result = token[1];
+                date = token[2];
+
+                ScoreItem item = new ScoreItem();
+                item.name = name;
+                item.result = result;
+                item.date = date;
+
+                highScoreValues.add(item);
+
+            }
+
+            adapter.notifyDataSetChanged();
+        }
     }
 
 

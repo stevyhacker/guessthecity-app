@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import info.hoang8f.widget.FButton;
@@ -38,6 +40,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     View newGameDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton;
+    String dateTimeFormat = "dd.MM.yyyy HH:mm:ss";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -248,6 +251,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                             if (questionsCounter < 10) {
                                 setNewQuestion();
                             } else {
+                                addNewScore();
                                 showNewGameDialog();
                             }
                         }
@@ -295,6 +299,26 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         return db.getQuestion(randomQuestionId);
     }
+
+    private void addNewScore(){
+        String allInfo = PMCGKvizZnanjaApp.preferencesHelper.getString("scores", "");
+
+        Date dateTime = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateTimeFormat);
+
+
+        if(allInfo.equalsIgnoreCase("") || allInfo == null)
+        {
+            allInfo = "Stevan" + ",:," + String.valueOf(questionsCounter*secondsCounter) + ",:," + "Vrijeme " + simpleDateFormat.format(dateTime);
+        }
+        else
+        {
+            allInfo += ":;:" + "Stevan" + ",:," + String.valueOf(questionsCounter*secondsCounter) + ",:," + " Vrijeme " + simpleDateFormat.format(dateTime);
+        }
+        PMCGKvizZnanjaApp.preferencesHelper.putString("scores", allInfo);
+    }
+
+
 
 //  MENU Code
 //   @Override
