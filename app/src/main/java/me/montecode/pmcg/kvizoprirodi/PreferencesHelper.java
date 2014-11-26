@@ -24,7 +24,7 @@ public class PreferencesHelper {
         SharedPreferences pref = context.getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
-        editor.apply();
+        editor.commit();
     }
 
 }

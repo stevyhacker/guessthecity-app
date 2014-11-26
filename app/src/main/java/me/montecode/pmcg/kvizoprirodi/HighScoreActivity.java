@@ -44,7 +44,6 @@ public class HighScoreActivity extends Activity {
         params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
         emptyText.setLayoutParams(params);
         emptyText.setPadding(10,10,10,10);
-//        emptyText.setVisibility(View.GONE);
         ((ViewGroup)highScoreListView.getParent()).addView(emptyText);
         highScoreListView.setEmptyView(emptyText);
 

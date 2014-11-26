@@ -7,5 +7,6 @@
     <string name="title_activity_main_quiz">MainQuizActivity</string>
     <string name="title_activity_high_score">HighScoreActivity</string>
     <string name="title_activity_about_project">AboutProjectActivity</string>
+    <string name="title_activity_survey">Anketa</string>
 
 </resources>

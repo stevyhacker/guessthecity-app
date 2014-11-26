@@ -42,6 +42,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
+    private FButton surveyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +74,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
         newGameButton = (FButton) newGameDialogView.findViewById(R.id.newGameButton);
         highScoresButton = (FButton) newGameDialogView.findViewById(R.id.highScoresButton);
+        surveyButton = (FButton) newGameDialogView.findViewById(R.id.surveyButton);
 
         newGameButton.setOnClickListener(this);
         highScoresButton.setOnClickListener(this);
+        surveyButton.setOnClickListener(this);
 
         newGameDialog = new AlertDialog.Builder(this).create();
         newGameDialog.setView(newGameDialogView, 0, 0, 0, 0);
@@ -120,8 +123,14 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 resetGame();
                 break;
             case R.id.highScoresButton:
+                addNewScore();
                 Intent intent2 = new Intent(this, HighScoreActivity.class);
                 startActivity(intent2);
+                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+                break;
+            case R.id.surveyButton:
+                Intent intent3 = new Intent(this, SurveyActivity.class);
+                startActivity(intent3);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 break;
 //            case R.id.nextQuestionButton:
@@ -137,6 +146,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         correctAnswers = 0;
         answerOptionClicked = false;
         setNewQuestion();
+        timeCounterHandler.removeCallbacks(secondsRunnable);
         startTimer();
         newGameDialog.cancel();
     }
@@ -252,7 +262,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                             if (questionsCounter < 10) {
                                 setNewQuestion();
                             } else {
-                                addNewScore();
+                                timeCounterHandler.removeCallbacks(secondsRunnable);
                                 showNewGameDialog();
                             }
                         }
@@ -310,13 +320,13 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         if(allInfo.equalsIgnoreCase("") || allInfo == null)
         {
-            allInfo = "Stevan" + ",:," + String.valueOf((correctAnswers*100)/secondsCounter) + ",:,"  + simpleDateFormat.format(dateTime);
+            allInfo = "Posjetilac" + ",:," + String.valueOf( (correctAnswers*10000)/secondsCounter) + ",:,"  + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         }
         else
         {
-            allInfo += ":;:" + "Stevan" + ",:," + String.valueOf((correctAnswers*100)/secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+            allInfo += ":;:" + "Posjetilac" + ",:," + String.valueOf((correctAnswers*10000)/secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         }

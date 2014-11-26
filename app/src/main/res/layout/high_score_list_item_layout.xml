@@ -25,6 +25,8 @@
         tools:text="500"
         android:layout_margin="10dp"
         android:id="@+id/scoreResultTextView"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
         android:layout_toRightOf="@+id/scoreNameTextView"
         />
     <TextView
@@ -36,6 +38,8 @@
         tools:text="5.10.2014"
         android:layout_margin="10dp"
         android:id="@+id/scoreDateTextView"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/scoreResultTextView"
         />
 

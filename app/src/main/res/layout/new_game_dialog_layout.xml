@@ -25,6 +25,7 @@
         android:textColor="@color/white"
         android:textSize="28sp"
         android:layout_marginTop="20dp"
+
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/scoreTimeTextView"
@@ -33,10 +34,12 @@
         android:layout_below="@+id/scorePointsTextView"
         tools:text="Vaše vrijeme je 100 sekundi" />
     <info.hoang8f.widget.FButton
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Nova igra "
+        android:text="Nova igra"
         android:textSize="22sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/white"
         android:padding="10dp"
         android:layout_marginTop="25dp"
@@ -51,9 +54,11 @@
         android:id="@+id/newGameButton"
         android:layout_below="@+id/scoreTimeTextView" />
     <info.hoang8f.widget.FButton
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Sačuvaj rezultat "
+        android:text="Sačuvaj rezultat"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textSize="22sp"
         android:textColor="@color/white"
         android:padding="10dp"
@@ -69,6 +74,28 @@
         android:id="@+id/highScoresButton"
         android:layout_alignBaseline="@+id/newGameButton"
         android:layout_toRightOf="@+id/newGameButton"/>
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anketa"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        fbutton:buttonColor="@color/color_emerald"
+        fbutton:shadowColor="@color/color_nephritis"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:id="@+id/surveyButton"
+        android:layout_alignBaseline="@+id/highScoresButton"
+        android:layout_toRightOf="@+id/highScoresButton"/>
     <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->

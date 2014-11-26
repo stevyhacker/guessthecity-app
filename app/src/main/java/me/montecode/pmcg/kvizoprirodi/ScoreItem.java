@@ -5,6 +5,7 @@ package me.montecode.pmcg.kvizoprirodi;
  */
 public class ScoreItem {
 
-    String name, result, date;
+    String name, result, date,correctAnswers,secondsCounter;
+    //TODO ADD THESE VALUES
 
 }

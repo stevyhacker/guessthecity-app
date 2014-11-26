@@ -87,7 +87,10 @@
             fbutton:cornerRadius="5dp" />
 
     </RelativeLayout>
-
+    <!--android:paddingTop="10dp"-->
+    <!--android:paddingBottom="10dp"-->
+    <!--android:paddingRight="10dp"-->
+    <!--android:paddingLeft="10dp"-->
 
     <ImageView
         android:layout_width="match_parent"
