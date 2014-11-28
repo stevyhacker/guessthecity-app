@@ -239,6 +239,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                             if (questionsCounter < 10) {
                                 setNewQuestion();
                             } else {
+                                timeCounterHandler.removeCallbacks(secondsRunnable);
                                 showNewGameDialog();
                             }
                         }
@@ -311,28 +312,24 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         return db.getQuestion(randomQuestionId);
     }
 
-    private void addNewScore(){
+    private void addNewScore() {
         String allInfo = PMCGKvizZnanjaApp.preferencesHelper.getString("scores", "");
 
         Date dateTime = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateTimeFormat);
 
 
-        if(allInfo.equalsIgnoreCase("") || allInfo == null)
-        {
-            allInfo = "Posjetilac" + ",:," + String.valueOf( (correctAnswers*10000)/secondsCounter) + ",:,"  + simpleDateFormat.format(dateTime);
+        if (allInfo.equalsIgnoreCase("") || allInfo == null) {
+            allInfo = "Posjetilac" + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
-        }
-        else
-        {
-            allInfo += ":;:" + "Posjetilac" + ",:," + String.valueOf((correctAnswers*10000)/secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+        } else {
+            allInfo += ":;:" + "Posjetilac" + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         }
         PMCGKvizZnanjaApp.preferencesHelper.putString("scores", allInfo);
     }
-
 
 
 //  MENU Code

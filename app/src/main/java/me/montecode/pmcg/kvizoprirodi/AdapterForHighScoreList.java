@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.ArrayList;
 
 /**
@@ -41,6 +44,12 @@ public class AdapterForHighScoreList extends ArrayAdapter<ScoreItem> {
         scoreNameTextView.setText(score.name);
         scoreResultTextView.setText(score.result);
         scoreDateTextView.setText(score.date);
+
+        YoYo.with(Techniques.BounceInLeft)
+                .duration(1500)
+                .playOn(view);
+
+
 
         return view;
 
