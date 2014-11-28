@@ -22,46 +22,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/enterNameTitleTextView"
+        android:maxLength="10"
+        android:ems="10"
+        android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/enterNameEditText" />
 
-    <info.hoang8f.widget.FButton
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Odustani"
-        android:textSize="22sp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColor="@color/white"
-        android:id="@+id/cancelEnterNameDialogButton"
-        android:layout_below="@id/enterNameEditText"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        android:layout_margin="10dp"
-        fbutton:cornerRadius="5dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/enterNameEditText">
 
-        />
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Odustani"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+            android:id="@+id/cancelEnterNameDialogButton"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            android:layout_margin="10dp"
+            fbutton:cornerRadius="5dp" />
 
-    <info.hoang8f.widget.FButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Potvrdi"
-        android:id="@+id/confirmEnterNameDialogButton"
-        android:textSize="22sp"
-        android:paddingLeft="10dp"
-        android:layout_margin="10dp"
-        android:paddingRight="10dp"
-        android:textColor="@color/white"
-        android:layout_alignBaseline="@+id/cancelEnterNameDialogButton"
-        android:layout_toRightOf="@id/cancelEnterNameDialogButton"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="5dp"
+        <info.hoang8f.widget.FButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potvrdi"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/confirmEnterNameDialogButton"
+            android:textSize="22sp"
+            android:paddingLeft="10dp"
+            android:layout_margin="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+            android:layout_alignBaseline="@+id/cancelEnterNameDialogButton"
+            android:layout_toRightOf="@id/cancelEnterNameDialogButton"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp" />
 
-        />
+    </LinearLayout>
+
 
 </RelativeLayout>

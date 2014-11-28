@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,12 +38,13 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     int questionsCounter = 0;
     int correctAnswers = 0;
     private Runnable secondsRunnable;
-    AlertDialog newGameDialog;
-    View newGameDialogView;
+    AlertDialog newGameDialog,enterNameDialog;
+    View newGameDialogView,enterNameDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
-    FButton newGameButton, highScoresButton;
+    FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
     private FButton surveyButton;
+    private EditText enterNameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,18 +72,29 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         timeCounterTextView.setText(String.valueOf(secondsCounter));
 
         newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
+        enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout,null);
+
         scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
         newGameButton = (FButton) newGameDialogView.findViewById(R.id.newGameButton);
         highScoresButton = (FButton) newGameDialogView.findViewById(R.id.highScoresButton);
         surveyButton = (FButton) newGameDialogView.findViewById(R.id.surveyButton);
 
+        confirmEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.confirmEnterNameDialogButton);
+        cancelEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.cancelEnterNameDialogButton);
+        enterNameEditText = (EditText) enterNameDialogView.findViewById(R.id.enterNameEditText);
+
         newGameButton.setOnClickListener(this);
         highScoresButton.setOnClickListener(this);
         surveyButton.setOnClickListener(this);
+        confirmEnterNameDialogButton.setOnClickListener(this);
+        cancelEnterNameDialogButton.setOnClickListener(this);
 
         newGameDialog = new AlertDialog.Builder(this).create();
         newGameDialog.setView(newGameDialogView, 0, 0, 0, 0);
+
+        enterNameDialog = new AlertDialog.Builder(this).create();
+        enterNameDialog.setView(enterNameDialogView,0,0,0,0);
 
         setNewQuestion();
         startTimer();
@@ -123,10 +136,19 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 resetGame();
                 break;
             case R.id.highScoresButton:
+                newGameDialog.cancel();
+                enterNameDialog.show();
+                break;
+            case R.id.confirmEnterNameDialogButton:
                 addNewScore();
+                enterNameDialog.cancel();
                 Intent intent2 = new Intent(this, HighScoreActivity.class);
                 startActivity(intent2);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+                break;
+            case R.id.cancelEnterNameDialogButton:
+                enterNameDialog.cancel();
+                newGameDialog.show();
                 break;
             case R.id.surveyButton:
                 Intent intent3 = new Intent(this, SurveyActivity.class);
@@ -320,11 +342,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
 
         if (allInfo.equalsIgnoreCase("") || allInfo == null) {
-            allInfo = "Posjetilac" + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+            allInfo = enterNameEditText.getText() + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         } else {
-            allInfo += ":;:" + "Posjetilac" + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+            allInfo += ":;:" + enterNameEditText.getText()+ ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         }
