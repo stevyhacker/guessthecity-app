@@ -148,8 +148,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.cancelEnterNameDialogButton:
                 enterNameDialog.cancel();
-                newGameDialog.show();
-                break;
+                newGameDialog.show();                break;
             case R.id.surveyButton:
                 Intent intent3 = new Intent(this, SurveyActivity.class);
                 startActivity(intent3);

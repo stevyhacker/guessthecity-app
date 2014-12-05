@@ -21,6 +21,15 @@
         android:textColor="@color/white"
         android:layout_centerInParent="true" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/maskota_pitanje"
+        android:id="@+id/quizImageView"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,11 +39,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/questionTextView"
+        android:layout_below="@+id/quizImageView"
         android:textColor="@color/white"
         android:padding="10dp"
         tools:text="Neki Sample Text"
-        android:layout_centerInParent="true" />
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -45,7 +55,7 @@
         android:textColor="@color/white"
         tools:text="Neki Sample Text"
         android:layout_margin="10dp"
-        android:layout_centerInParent="true"
+        android:gravity="center"
         android:layout_below="@+id/option1TextView" />
 
     <TextView
@@ -58,7 +68,7 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:layout_below="@+id/option2TextView"
-        android:layout_centerInParent="true" />
+        android:gravity="center" />
 
     <TextView
         android:layout_width="match_parent"
@@ -70,7 +80,7 @@
         android:layout_below="@+id/option3TextView"
         tools:text="Neki Sample Text"
         android:layout_margin="10dp"
-        android:layout_centerInParent="true" />
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
