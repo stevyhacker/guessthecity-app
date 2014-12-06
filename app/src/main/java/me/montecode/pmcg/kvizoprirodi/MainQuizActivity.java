@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     private int previousQuestionId;
     TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
     //    FButton nextQuestionButton;
+    private ImageView baseImgView,leftDownQuestionMarkImgView,rightDownQuestionMarkImgView,rightUpQuestionMarkImgView;
     private QuestionItem currentQuestionItem;
     private String currentQuestionAnswer;
     private int currentQuestionAnswerPosition;
@@ -61,6 +63,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option3TextView = (TextView) findViewById(R.id.option3TextView);
         questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
         timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
+        baseImgView = (ImageView) findViewById(R.id.quizBaseImageView);
+        leftDownQuestionMarkImgView = (ImageView) findViewById(R.id.leftDownQuestionMarkImageView);
+        rightDownQuestionMarkImgView = (ImageView) findViewById(R.id.rightDownQuestionMarkImageView);
+        rightUpQuestionMarkImgView = (ImageView) findViewById(R.id.rightUpQuestionMarkImageView);
 //        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
@@ -98,6 +104,16 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         setNewQuestion();
         startTimer();
+        YoYo.with(Techniques.Flash)
+                .duration(15000)
+                .playOn(rightDownQuestionMarkImgView);
+        YoYo.with(Techniques.BounceInLeft)
+                .duration(15000)
+                .playOn(rightUpQuestionMarkImgView);
+        YoYo.with(Techniques.Tada)
+                .duration(15000)
+                .playOn(leftDownQuestionMarkImgView);
+
 
     }
 
