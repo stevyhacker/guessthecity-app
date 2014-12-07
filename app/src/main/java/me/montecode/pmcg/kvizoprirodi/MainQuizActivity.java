@@ -220,6 +220,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 rightUpQuestionMarkImgView.setVisibility(View.GONE);
                 rightDownQuestionMarkImgView.setVisibility(View.GONE);
             } catch (IOException e) {
+                baseImgView.setImageDrawable(getResources().getDrawable(R.drawable.maskota_lupa));
+                leftDownQuestionMarkImgView.setVisibility(View.VISIBLE);
+                rightUpQuestionMarkImgView.setVisibility(View.VISIBLE);
+                rightDownQuestionMarkImgView.setVisibility(View.VISIBLE);
                 e.printStackTrace();
             }
         } else {
