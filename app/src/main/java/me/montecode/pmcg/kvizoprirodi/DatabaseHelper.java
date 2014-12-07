@@ -22,6 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_OPTION1 = "option1";
     private static final String KEY_OPTION2 = "option2";
     private static final String KEY_OPTION3 = "option3";
+    private static final String KEY_LEVEL = "level";
+    private static final String KEY_IMAGE_NAME = "image_name";
+
 
     public DatabaseHelper(Context context) {
 
@@ -32,9 +35,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_QUESTION + " TEXT, "
-                + KEY_ANSWER + " TEXT, " + KEY_OPTION1 + " TEXT, " + KEY_OPTION2 + " TEXT, " + KEY_OPTION3 + " TEXT)";
-
+        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_QUESTION + " TEXT, " + KEY_LEVEL + " INTEGER, "
+                + KEY_ANSWER + " TEXT, " + KEY_OPTION1 + " TEXT, " + KEY_OPTION2 + " TEXT, " + KEY_OPTION3 + " TEXT, " + KEY_IMAGE_NAME + " TEXT)";
 
         db.execSQL(CREATE_QUESTIONS_TABLE);
 
@@ -51,10 +53,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_QUESTION, questionItem.question);
+        values.put(KEY_LEVEL, questionItem.level);
         values.put(KEY_ANSWER, questionItem.answer);
         values.put(KEY_OPTION1, questionItem.option1);
         values.put(KEY_OPTION2, questionItem.option2);
         values.put(KEY_OPTION3, questionItem.option3);
+        values.put(KEY_IMAGE_NAME, questionItem.imageName);
 
         db.insert(TABLE_QUESTIONS, null, values);
         db.close();
@@ -63,12 +67,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public QuestionItem getQuestion(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_QUESTIONS, new String[]{KEY_ID, KEY_QUESTION, KEY_ANSWER, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3},
+        Cursor cursor = db.query(TABLE_QUESTIONS, new String[]{KEY_ID, KEY_QUESTION, KEY_LEVEL, KEY_ANSWER, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3, KEY_IMAGE_NAME},
                 KEY_ID + " =?", new String[]{(String.valueOf(id))}, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
-        QuestionItem questionItem = new QuestionItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+        QuestionItem questionItem = new QuestionItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), cursor.getString(5),cursor.getString(6),cursor.getString(7));
         db.close();
         return questionItem;
     }
@@ -77,10 +81,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_QUESTION, questionItem.question);
+        values.put(KEY_LEVEL, questionItem.level);
         values.put(KEY_ANSWER, questionItem.answer);
         values.put(KEY_OPTION1, questionItem.option1);
         values.put(KEY_OPTION2, questionItem.option2);
         values.put(KEY_OPTION3, questionItem.option3);
+        values.put(KEY_IMAGE_NAME, questionItem.imageName);
 
         db.update(TABLE_QUESTIONS, values, KEY_ID + " =?", new String[]{String.valueOf(questionItem.getId())});
         db.close();

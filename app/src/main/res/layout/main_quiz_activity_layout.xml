@@ -32,17 +32,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/quizBaseImageView"
-            android:src="@drawable/maskota_lupa" />
+             />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rightDownQuestionMarkImageView"
             android:src="@drawable/maskota_pitanje_dolje_desno" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rightUpQuestionMarkImageView"
             android:src="@drawable/maskota_pitanje_gore_desno" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

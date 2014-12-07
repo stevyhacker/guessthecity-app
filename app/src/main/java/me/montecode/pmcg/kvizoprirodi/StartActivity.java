@@ -78,10 +78,13 @@ public class StartActivity extends Activity implements View.OnClickListener {
                         QuestionItem questionItem = new QuestionItem();
 
                         questionItem.question = questionJsonObject.getString("question");
+                        questionItem.level = questionJsonObject.getInt("level");
                         questionItem.answer = questionJsonObject.getString("answer");
                         questionItem.option1 = questionJsonObject.getString("option1");
                         questionItem.option2 = questionJsonObject.getString("option2");
                         questionItem.option3 = questionJsonObject.getString("option3");
+                        questionItem.imageName = questionJsonObject.getString("image_name");
+
 
                         db.addQuestion(questionItem);
                     }

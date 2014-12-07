@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -18,6 +21,8 @@ import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -30,7 +35,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     private int previousQuestionId;
     TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
     //    FButton nextQuestionButton;
-    private ImageView baseImgView,leftDownQuestionMarkImgView,rightDownQuestionMarkImgView,rightUpQuestionMarkImgView;
+    private ImageView baseImgView, leftDownQuestionMarkImgView, rightDownQuestionMarkImgView, rightUpQuestionMarkImgView;
     private QuestionItem currentQuestionItem;
     private String currentQuestionAnswer;
     private int currentQuestionAnswerPosition;
@@ -40,8 +45,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     int questionsCounter = 0;
     int correctAnswers = 0;
     private Runnable secondsRunnable;
-    AlertDialog newGameDialog,enterNameDialog;
-    View newGameDialogView,enterNameDialogView;
+    AlertDialog newGameDialog, enterNameDialog;
+    View newGameDialogView, enterNameDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
@@ -78,7 +83,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         timeCounterTextView.setText(String.valueOf(secondsCounter));
 
         newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
-        enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout,null);
+        enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout, null);
 
         scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
@@ -100,21 +105,24 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         newGameDialog.setView(newGameDialogView, 0, 0, 0, 0);
 
         enterNameDialog = new AlertDialog.Builder(this).create();
-        enterNameDialog.setView(enterNameDialogView,0,0,0,0);
+        enterNameDialog.setView(enterNameDialogView, 0, 0, 0, 0);
 
         setNewQuestion();
         startTimer();
-        YoYo.with(Techniques.Flash)
-                .duration(15000)
+
+
+    }
+
+    public void setAnimations(long duration) {
+        YoYo.with(Techniques.Shake)
+                .duration(duration)
                 .playOn(rightDownQuestionMarkImgView);
-        YoYo.with(Techniques.BounceInLeft)
-                .duration(15000)
+        YoYo.with(Techniques.Landing)
+                .duration(duration)
                 .playOn(rightUpQuestionMarkImgView);
         YoYo.with(Techniques.Tada)
-                .duration(15000)
+                .duration(duration)
                 .playOn(leftDownQuestionMarkImgView);
-
-
     }
 
     @Override
@@ -164,7 +172,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.cancelEnterNameDialogButton:
                 enterNameDialog.cancel();
-                newGameDialog.show();                break;
+                newGameDialog.show();
+                break;
             case R.id.surveyButton:
                 Intent intent3 = new Intent(this, SurveyActivity.class);
                 startActivity(intent3);
@@ -203,6 +212,38 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         option3TextView.setBackgroundResource(R.drawable.answeroption_drawable);
         option4TextView.setBackgroundResource(R.drawable.answeroption_drawable);
         answerOptionClicked = false;
+
+        if (!currentQuestionItem.imageName.equalsIgnoreCase("default")) {
+            try {
+                baseImgView.setImageBitmap(loadDataFromAsset(currentQuestionItem.imageName));
+                leftDownQuestionMarkImgView.setVisibility(View.GONE);
+                rightUpQuestionMarkImgView.setVisibility(View.GONE);
+                rightDownQuestionMarkImgView.setVisibility(View.GONE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            baseImgView.setImageDrawable(getResources().getDrawable(R.drawable.maskota_lupa));
+            leftDownQuestionMarkImgView.setVisibility(View.VISIBLE);
+            rightUpQuestionMarkImgView.setVisibility(View.VISIBLE);
+            rightDownQuestionMarkImgView.setVisibility(View.VISIBLE);
+        }
+
+        setAnimations(5000);
+
+    }
+
+    public Bitmap loadDataFromAsset(String imageName) throws IOException {
+
+        InputStream is = getAssets().open("slike/" + imageName + ".jpg");
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+        Bitmap bitmap = BitmapFactory.decodeStream(is, new Rect(),options);
+
+//        Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), R.drawable.image, options );
+//        Drawable d = new BitmapDrawable(getResources(),bitmap);
+//        return Drawable.createFromStream(is, null);
+        return bitmap;
     }
 
     private void startTimer() {
@@ -361,7 +402,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         } else {
-            allInfo += ":;:" + enterNameEditText.getText()+ ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
+            allInfo += ":;:" + enterNameEditText.getText() + ",:," + String.valueOf((correctAnswers * 10000) / secondsCounter) + ",:," + simpleDateFormat.format(dateTime);
             Log.e("PREFERENCES", "allInfo " + allInfo);
 
         }
