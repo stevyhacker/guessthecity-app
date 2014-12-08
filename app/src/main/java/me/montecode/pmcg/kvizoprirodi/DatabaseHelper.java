@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by stevyhacker on 20.7.14..
@@ -148,7 +149,62 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return db_version;
     }
+    public QuestionItem[] getFirstLevelQuestionArray() {
+        ArrayList<QuestionItem> questionItems = new ArrayList<QuestionItem>();
 
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "  + TABLE_QUESTIONS + " WHERE " + KEY_LEVEL +  "=1;",null);
+
+        if(cursor!=null){
+            if(cursor.moveToFirst()){
+                while(cursor.isAfterLast()==false){
+                    QuestionItem questionItem = new QuestionItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), cursor.getString(5),cursor.getString(6),cursor.getString(7));
+                    questionItems.add(questionItem);
+                    cursor.moveToNext();
+                }
+            }
+            cursor.close();
+        }
+        return questionItems.toArray(new QuestionItem[questionItems.size()]);
+    }
+
+    public QuestionItem[] getSecondLevelQuestionArray() {
+        ArrayList<QuestionItem> questionItems = new ArrayList<QuestionItem>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "  + TABLE_QUESTIONS + " WHERE " + KEY_LEVEL +  "=2;",null);
+
+        if(cursor!=null){
+            if(cursor.moveToFirst()){
+                while(cursor.isAfterLast()==false){
+                    QuestionItem questionItem = new QuestionItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), cursor.getString(5),cursor.getString(6),cursor.getString(7));
+                    questionItems.add(questionItem);
+                    cursor.moveToNext();
+                }
+            }
+            cursor.close();
+        }
+        return questionItems.toArray(new QuestionItem[questionItems.size()]);
+    }
+
+    public QuestionItem[] getThirdLevelQuestionArray() {
+        ArrayList<QuestionItem> questionItems = new ArrayList<QuestionItem>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "  + TABLE_QUESTIONS + " WHERE " + KEY_LEVEL +  "=3;",null);
+
+        if(cursor!=null){
+            if(cursor.moveToFirst()){
+                while(cursor.isAfterLast()==false){
+                    QuestionItem questionItem = new QuestionItem(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), cursor.getString(4), cursor.getString(5),cursor.getString(6),cursor.getString(7));
+                    questionItems.add(questionItem);
+                    cursor.moveToNext();
+                }
+            }
+            cursor.close();
+        }
+        return questionItems.toArray(new QuestionItem[questionItems.size()]);
+    }
  /*   public boolean exists(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT * FROM " + TABLE_QUESTIONS + " WHERE id = '" + String.valueOf(id) + "'";

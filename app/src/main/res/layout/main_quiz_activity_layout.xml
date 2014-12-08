@@ -129,6 +129,19 @@
         android:textColor="@color/white"
         android:layout_toLeftOf="@id/questionCounterTextView" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/firstLevelCorrectAnswersTextView"
+        tools:text="Tačnih odgovora: 0"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+         />
+
     <!--<info.hoang8f.widget.FButton-->
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->

@@ -32,7 +32,7 @@ import info.hoang8f.widget.FButton;
 
 public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
-    private int previousQuestionId;
+    //    private int previousQuestionId = -1;
     TextView questionTextView, option4TextView, option1TextView, option2TextView, option3TextView, questionCounterTextView, timeCounterTextView;
     //    FButton nextQuestionButton;
     private ImageView baseImgView, leftDownQuestionMarkImgView, rightDownQuestionMarkImgView, rightUpQuestionMarkImgView;
@@ -52,6 +52,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
     private FButton surveyButton;
     private EditText enterNameEditText;
+    QuestionItem[] firstLevelQuestionArray;
+    QuestionItem[] secondLevelQuestionArray;
+    QuestionItem[] thirdLevelQuestionArray;
+    int currentLevel = 1;
+    TextView correctAnswersTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         leftDownQuestionMarkImgView = (ImageView) findViewById(R.id.leftDownQuestionMarkImageView);
         rightDownQuestionMarkImgView = (ImageView) findViewById(R.id.rightDownQuestionMarkImageView);
         rightUpQuestionMarkImgView = (ImageView) findViewById(R.id.rightUpQuestionMarkImageView);
+        correctAnswersTextView = (TextView) findViewById(R.id.firstLevelCorrectAnswersTextView);
+        correctAnswersTextView.setText("Tačnih odgovora: 0");
 //        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
@@ -107,6 +114,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         enterNameDialog = new AlertDialog.Builder(this).create();
         enterNameDialog.setView(enterNameDialogView, 0, 0, 0, 0);
 
+        firstLevelQuestionArray = getLevelQuestions(1);
+        secondLevelQuestionArray = getLevelQuestions(2);
+        thirdLevelQuestionArray = getLevelQuestions(3);
         setNewQuestion();
         startTimer();
 
@@ -187,19 +197,33 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     }
 
     private void resetGame() {
+        firstLevelQuestionArray = getLevelQuestions(1);
+        secondLevelQuestionArray = getLevelQuestions(2);
+        thirdLevelQuestionArray = getLevelQuestions(3);
+        currentLevel = 1;
         secondsCounter = 0;
         questionsCounter = 0;
         correctAnswers = 0;
         answerOptionClicked = false;
-        setNewQuestion();
         timeCounterHandler.removeCallbacks(secondsRunnable);
+        setNewQuestion();
         startTimer();
         newGameDialog.cancel();
     }
 
     private void setNewQuestion() {
         questionsCounter++;
-        questionCounterTextView.setText(String.valueOf(questionsCounter) + "/10");
+        switch (currentLevel) {
+            default:
+                questionCounterTextView.setText(String.valueOf(questionsCounter) + "/30");
+                break;
+            case 2:
+                questionCounterTextView.setText(String.valueOf(questionsCounter + 10) + "/30");
+                break;
+            case 3:
+                questionCounterTextView.setText(String.valueOf(questionsCounter + 20) + "/30");
+                break;
+        }
 
         currentQuestionItem = getRandomQuestion();
         currentQuestionAnswer = currentQuestionItem.answer;
@@ -242,7 +266,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         InputStream is = getAssets().open("slike/" + imageName + ".jpg");
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false;
-        Bitmap bitmap = BitmapFactory.decodeStream(is, new Rect(),options);
+        Bitmap bitmap = BitmapFactory.decodeStream(is, new Rect(), options);
 
 //        Bitmap bitmap = BitmapFactory.decodeResource(this.context.getResources(), R.drawable.image, options );
 //        Drawable d = new BitmapDrawable(getResources(),bitmap);
@@ -313,12 +337,18 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                             .duration(500)
                             .playOn(answerOption);
 
-
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             correctAnswers++;
+                            correctAnswersTextView.setText("Tačnih odgovora: " + String.valueOf(correctAnswers));
+
                             if (questionsCounter < 10) {
+                                setNewQuestion();
+                            } else if (currentLevel < 3) {
+                                currentLevel++;
+                                Toast.makeText(getApplicationContext(), "Slijede teža pitanja.", Toast.LENGTH_SHORT).show();
+                                questionsCounter = 0;
                                 setNewQuestion();
                             } else {
                                 timeCounterHandler.removeCallbacks(secondsRunnable);
@@ -344,6 +374,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                         public void run() {
                             if (questionsCounter < 10) {
                                 setNewQuestion();
+                            } else if (currentLevel < 3) {
+                                currentLevel++;
+                                questionsCounter = 0;
+                                setNewQuestion();
                             } else {
                                 timeCounterHandler.removeCallbacks(secondsRunnable);
                                 showNewGameDialog();
@@ -359,7 +393,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
     private void showNewGameDialog() {
         scoreTimeTextView.setText("Vrijeme za koje ste odgovorili na pitanja je: " + String.valueOf(secondsCounter) + " sekundi.");
-        scorePointsTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/10" + " pitanja.");
+        scorePointsTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/30" + " pitanja.");
         newGameDialog.show();
     }
 
@@ -382,16 +416,35 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     }
 
     private QuestionItem getRandomQuestion() {
-        int lastId = db.getLastQuestionItemId();
+//        int lastId;
+//        switch (currentLevel) {
+//            default:
+//                lastId = firstLevelQuestionArray.length;
+//                break;
+//            case 2:
+//                lastId = secondLevelQuestionArray.length;
+//                break;
+//            case 3:
+//                lastId = thirdLevelQuestionArray.length;
+//                break;
+//        }
 
-        Random randomForQuestion = new Random();
-        int randomQuestionId = randomForQuestion.nextInt(lastId) + 1;
-        while (randomQuestionId == previousQuestionId) {
-            randomQuestionId = randomForQuestion.nextInt(lastId) + 1;
+//        Random randomForQuestion = new Random();
+//        int randomQuestionId = randomForQuestion.nextInt(lastId);
+//        while (randomQuestionId == previousQuestionId) {
+//            randomQuestionId = randomForQuestion.nextInt(lastId);
+//        }
+//        previousQuestionId = randomQuestionId;
+
+        switch (currentLevel) {
+            default:
+                return firstLevelQuestionArray[questionsCounter - 1];
+            case 2:
+                return secondLevelQuestionArray[questionsCounter - 1];
+            case 3:
+                return thirdLevelQuestionArray[questionsCounter - 1];
         }
-        previousQuestionId = randomQuestionId;
 
-        return db.getQuestion(randomQuestionId);
     }
 
     private void addNewScore() {
@@ -411,6 +464,43 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         }
         PMCGKvizZnanjaApp.preferencesHelper.putString("scores", allInfo);
+    }
+
+    public QuestionItem[] getLevelQuestions(int level) {
+        QuestionItem[] allLevelQuestions;
+
+        switch (level) {
+            default:
+                allLevelQuestions = db.getFirstLevelQuestionArray();
+                break;
+            case 2:
+                allLevelQuestions = db.getSecondLevelQuestionArray();
+                break;
+            case 3:
+                allLevelQuestions = db.getThirdLevelQuestionArray();
+                break;
+        }
+
+        QuestionItem[] levelQuestionItems = new QuestionItem[10];
+        int[] chosenIds = new int[10];
+
+        int lastId = allLevelQuestions.length;
+        Random randomForQuestion = new Random();
+
+        for (int i = 0; i < levelQuestionItems.length; i++) {
+            int randomQuestionId = randomForQuestion.nextInt(lastId);
+
+            for (int j = 0; j < 10; j++) {
+                if (randomQuestionId == chosenIds[j]) {
+                    randomQuestionId = randomForQuestion.nextInt(lastId);
+                    j = 0;
+                }
+            }
+            chosenIds[i] = randomQuestionId;
+            levelQuestionItems[i] = (allLevelQuestions[randomQuestionId]);
+        }
+
+        return levelQuestionItems;
     }
 
 
