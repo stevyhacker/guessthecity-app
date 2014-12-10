@@ -2,12 +2,14 @@ package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,11 +22,12 @@ import info.hoang8f.widget.FButton;
 
 public class StartActivity extends Activity implements View.OnClickListener {
 
-    private FButton startQuizButton, highScoreButton, aboutProjectButton;
+    private FButton startQuizButton, highScoreButton, aboutProjectButton, startSurveyButton;
     DatabaseHelper db;
     Functions functions = new Functions();
     private String offlineQuestionsJsonString;
     private static final int OFFLINE_DATA = 100;
+    private TextView quizTitleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,17 @@ public class StartActivity extends Activity implements View.OnClickListener {
         startQuizButton = (FButton) findViewById(R.id.startQuizButton);
         highScoreButton = (FButton) findViewById(R.id.highScoreButton);
         aboutProjectButton = (FButton) findViewById(R.id.aboutProjectButton);
+        startSurveyButton = (FButton) findViewById(R.id.startActivitySurveyButton);
+        quizTitleTextView = (TextView) findViewById(R.id.quizTitleTextView);
 
         startQuizButton.setOnClickListener(this);
         highScoreButton.setOnClickListener(this);
         aboutProjectButton.setOnClickListener(this);
+        startSurveyButton.setOnClickListener(this);
+
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
+        quizTitleTextView.setTypeface(myTypeface);
+        quizTitleTextView.setTextSize(72);
 
         startOfflineMod();
 
@@ -102,21 +112,27 @@ public class StartActivity extends Activity implements View.OnClickListener {
             case R.id.startQuizButton:
                 Intent intent1 = new Intent(this, MainQuizActivity.class);
                 startActivity(intent1);
-                overridePendingTransition(R.anim.slide_in_from_left_animation , R.anim.slide_out_from_right_animation );
-
+                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 break;
+
             case R.id.highScoreButton:
                 Intent intent2 = new Intent(this, HighScoreActivity.class);
                 startActivity(intent2);
-                overridePendingTransition(R.anim.slide_in_from_left_animation , R.anim.slide_out_from_right_animation );
-
+                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 break;
+
             case R.id.aboutProjectButton:
                 Intent intent3 = new Intent(this, AboutProjectActivity.class);
                 startActivity(intent3);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
-
                 break;
+
+            case R.id.startActivitySurveyButton:
+                Intent intent4 = new Intent(this, SurveyActivity.class);
+                startActivity(intent4);
+                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+                break;
+
         }
     }
 

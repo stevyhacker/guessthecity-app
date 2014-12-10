@@ -33,7 +33,7 @@
             android:textStyle="italic"
             android:textColor="@color/white"
             android:layout_margin="20dp"
-            android:text="Kviz koliko znaš o prirodi?"
+            android:text="Koliko znaš o prirodi?"
             android:layout_centerHorizontal="true" />
 
 
@@ -85,6 +85,28 @@
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp"
             fbutton:cornerRadius="5dp" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:text="Anketa"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true"
+            fbutton:buttonColor="@color/color_emerald"
+            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:id="@+id/startActivitySurveyButton"
+            android:layout_below="@+id/aboutProjectButton"/>
 
     </RelativeLayout>
     <!--android:paddingTop="10dp"-->

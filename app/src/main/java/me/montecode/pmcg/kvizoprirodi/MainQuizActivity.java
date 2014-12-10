@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,8 +46,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     int questionsCounter = 0;
     int correctAnswers = 0;
     private Runnable secondsRunnable;
-    AlertDialog newGameDialog, enterNameDialog;
-    View newGameDialogView, enterNameDialogView;
+    AlertDialog newGameDialog, enterNameDialog,nextLevelDialog;
+    View newGameDialogView, enterNameDialogView, nextLevelDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
@@ -57,6 +58,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     QuestionItem[] thirdLevelQuestionArray;
     int currentLevel = 1;
     TextView correctAnswersTextView;
+    private Button nextLevelButton;
+    private TextView scorePointsThisLevelTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
         enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout, null);
+        nextLevelDialogView = inflater.inflate(R.layout.next_level_dialog_layout,null);
 
         scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
@@ -102,11 +106,15 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         cancelEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.cancelEnterNameDialogButton);
         enterNameEditText = (EditText) enterNameDialogView.findViewById(R.id.enterNameEditText);
 
+        nextLevelButton = (Button) nextLevelDialogView.findViewById(R.id.continueLevelButton);
+        scorePointsThisLevelTextView = (TextView) nextLevelDialogView.findViewById(R.id.scorePointsThisLevelTextView);
+
         newGameButton.setOnClickListener(this);
         highScoresButton.setOnClickListener(this);
         surveyButton.setOnClickListener(this);
         confirmEnterNameDialogButton.setOnClickListener(this);
         cancelEnterNameDialogButton.setOnClickListener(this);
+        nextLevelButton.setOnClickListener(this);
 
         newGameDialog = new AlertDialog.Builder(this).create();
         newGameDialog.setView(newGameDialogView, 0, 0, 0, 0);
@@ -114,12 +122,15 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         enterNameDialog = new AlertDialog.Builder(this).create();
         enterNameDialog.setView(enterNameDialogView, 0, 0, 0, 0);
 
+        nextLevelDialog = new AlertDialog.Builder(this).create();
+        nextLevelDialog.setView(nextLevelDialogView, 0, 0, 0, 0);
+        nextLevelDialog.setCancelable(false);
+
         firstLevelQuestionArray = getLevelQuestions(1);
         secondLevelQuestionArray = getLevelQuestions(2);
         thirdLevelQuestionArray = getLevelQuestions(3);
         setNewQuestion();
         startTimer();
-
 
     }
 
@@ -347,7 +358,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                                 setNewQuestion();
                             } else if (currentLevel < 3) {
                                 currentLevel++;
-                                Toast.makeText(getApplicationContext(), "Slijede teža pitanja.", Toast.LENGTH_SHORT).show();
+                                showNextLevelDialog();
                                 questionsCounter = 0;
                                 setNewQuestion();
                             } else {
@@ -376,6 +387,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                                 setNewQuestion();
                             } else if (currentLevel < 3) {
                                 currentLevel++;
+                                showNextLevelDialog();
                                 questionsCounter = 0;
                                 setNewQuestion();
                             } else {
@@ -390,6 +402,20 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
             return false;
         }
     }
+
+    private void showNextLevelDialog() {
+        //TODO
+        switch (currentLevel){
+            default:
+                scorePointsThisLevelTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/10" + " lakih pitanja.");
+                break;
+            case 3:
+                scorePointsThisLevelTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/20" + " srednje teških pitanja.");
+                break;
+        }
+        nextLevelDialog.show();
+    }
+
 
     private void showNewGameDialog() {
         scoreTimeTextView.setText("Vrijeme za koje ste odgovorili na pitanja je: " + String.valueOf(secondsCounter) + " sekundi.");

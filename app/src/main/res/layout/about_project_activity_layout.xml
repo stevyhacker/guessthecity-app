@@ -26,20 +26,14 @@
         android:layout_above="@+id/donatoriBanerAboutImgView">
 
         <TextView
-            android:text="
-Put ka osnivanju\n
+            android:text="Izložba &quot;Priroda nas spaja&quot; se finansira sredstvima IPA Adriatic programa na projektu &quot;MuseumCultour - obogatimo kulturni turizam&quot;. Cilj ovog projekta je povezivanje i promocija kulturne baštine jadranskog područja putem stvaranja jedinstvenog turističkog proizvoda u vidu mreže jadranskih muzeja. U sklopu projekta je finansirana izrada novih i obogaćivanje postojećih sadržaja u muzejima Albanije, Crne Gore, Hrvatske, Slovenije i Italije.\n
 
- \nPočetak razvoja Prirodnjačkog muzeja Crne Gore seže u 1961. godinu kada je uredbom Vlade Crne Gore osnovana Prirodnjačka zbirka. Iste te godine osnovan je i Republički zavod za zaštitu prirode kome je priključena i Prirodnjačka zbirka. \n
-
- \nU to vrijeme, nastojalo se prije svega stvoriti bazu eksponata za izlaganje, koji bi bili atraktivni za posjetioce. To je uspješno obavljeno i zbirka je sadržala više stotina prepariranih ptica, prije svega sa Skadarskog jezera, ali i dosta drugih eksponata. Posebnu vrijednost je činio herbar balkanskih zemalja. Zbirka je komunicirala sa javnošću preko stalne izložbe u Podgorici, učešća na sajmovima lova i ribolova kao i preko naučne publikacije &quot;Glasnik republičkog zavoda za zaštitu prirode - Prirodnjačkog muzeja &quot; koju je Zavod izdavao. \n
-   \nOsnovna mana zbirke bila je nedovoljna naučna obrada svih eksponata, a naročito je bila zanemarena dokumentacija o samoj zbirci.
-
-    \nZbirka je funkcionisala sve do zemljotresa 1979. godine kada je zgrada u kojoj je bila smještena teško oštećena. Iako su direktne štete na zbirci bile male, kasnije, zbog neadekvatnog prostora gdje je čuvana i čestog seljenja uništeno je oko 50% organskih preparata, prije svega ptica. U potpunosti je sačuvan herbar i geološko-paleontološke kolekcije. \n
-
-    \nZbirka je 1985. godine vraćena u saniranu zgradu Zavoda za zaštitu prirode, pripremljen je prostor za novu izložbu, ali ona nije realizovana. Zbirka je i dalje propadala i tek 1995. godine, njeni očuvani ostaci postali su jezgro Prirodnjačkog muzeja Crne Gore, izuzev herabra koji je ostao u Zavodu za zaštitu prirode."
-        android:layout_width="wrap_content"
+\nCilj izložbe je da posjetiocima probudi svijest o prirodi, njenoj vrijednosti i mjestu čovjeka u njoj. Čovjek je neodvojivi dio prirode, čija je kultura i tradicija umnogome oblikovana prirodnim okruženjem. Zato je izložba i nazvana &quot;Priroda nas spaja&quot;, imajući u vidu ne samo veze koje imamo sa prirodom u Crnoj Gori, već i jednake veze čovjeka i prirode na prostoru čitave jadranske regije.
+"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:padding="5dp"
             android:id="@+id/aboutTextView"
             android:textColor="@color/white" />
     </ScrollView>
