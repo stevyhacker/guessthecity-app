@@ -124,7 +124,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         nextLevelDialog = new AlertDialog.Builder(this).create();
         nextLevelDialog.setView(nextLevelDialogView, 0, 0, 0, 0);
-        nextLevelDialog.setCancelable(false);
+//        nextLevelDialog.setCancelable(false);
 
         firstLevelQuestionArray = getLevelQuestions(1);
         secondLevelQuestionArray = getLevelQuestions(2);
@@ -199,6 +199,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 Intent intent3 = new Intent(this, SurveyActivity.class);
                 startActivity(intent3);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+                break;
+            case R.id.continueLevelButton:
+                nextLevelDialog.cancel();
                 break;
 //            case R.id.nextQuestionButton:
 //                setNewQuestion();
@@ -290,7 +293,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         secondsRunnable = new Runnable() {
             @Override
             public void run() {
-                timeCounterTextView.setText(String.valueOf(secondsCounter));
+                timeCounterTextView.setText(String.valueOf(secondsCounter) + " s");
                 secondsCounter++;
                 timeCounterHandler.postDelayed(secondsRunnable, 1000);
             }
@@ -330,6 +333,34 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 option1TextView.setText(currentQuestionItem.option1);
                 break;
         }
+
+        if(option1TextView.getText().toString().equalsIgnoreCase("")){
+            option1TextView.setVisibility(View.GONE);
+        }
+        else{
+            option1TextView.setVisibility(View.VISIBLE);
+        }
+
+        if(option2TextView.getText().toString().equalsIgnoreCase("")){
+            option2TextView.setVisibility(View.GONE);
+        }
+        else{
+            option2TextView.setVisibility(View.VISIBLE);
+        }
+
+        if(option3TextView.getText().toString().equalsIgnoreCase("")){
+            option3TextView.setVisibility(View.GONE);
+        }
+        else{
+            option3TextView.setVisibility(View.VISIBLE);
+        }
+        if(option4TextView.getText().toString().equalsIgnoreCase("")){
+            option4TextView.setVisibility(View.GONE);
+        }
+        else{
+            option4TextView.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private boolean checkAnswer(CharSequence text, final TextView answerOption) {
