@@ -1,6 +1,8 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class HighScoreActivity extends Activity {
@@ -39,12 +43,14 @@ public class HighScoreActivity extends Activity {
         emptyText.setText("Još uvjek nema rezultata.");
         emptyText.setTextColor(getResources().getColor(R.color.white));
         emptyText.setTextSize(25);
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
+        emptyText.setTypeface(myTypeface);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.BELOW,titleScoresTextView.getId());
+        params.addRule(RelativeLayout.BELOW, titleScoresTextView.getId());
         params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
         emptyText.setLayoutParams(params);
-        emptyText.setPadding(10,10,10,10);
-        ((ViewGroup)highScoreListView.getParent()).addView(emptyText);
+        emptyText.setPadding(10, 10, 10, 10);
+        ((ViewGroup) highScoreListView.getParent()).addView(emptyText);
         highScoreListView.setEmptyView(emptyText);
 
     }
@@ -53,15 +59,13 @@ public class HighScoreActivity extends Activity {
         highScoreValues.clear();
 
         String allInformation = PMCGKvizZnanjaApp.preferencesHelper.getString("scores", "");
-        if(allInformation == null || allInformation.equalsIgnoreCase(""))
-        {
+        if (allInformation == null || allInformation.equalsIgnoreCase("")) {
 
-        }
-        else {
+        } else {
 
             for (String returnvalue : allInformation.split(":;:")) {
 
-                Log.e("PREFERENCES","returnvalue  " + returnvalue);
+                Log.e("PREFERENCES", "returnvalue  " + returnvalue);
 
                 name = "";
                 result = "";
@@ -70,13 +74,13 @@ public class HighScoreActivity extends Activity {
                 String[] token = returnvalue.split(",:,");
 
                 name = token[0];
-                Log.e("PREFERENCES","name " + name);
+                Log.e("PREFERENCES", "name " + name);
 
                 result = token[1];
-                Log.e("PREFERENCES","result " + result);
+                Log.e("PREFERENCES", "result " + result);
 
                 date = token[2];
-                Log.e("PREFERENCES","date " + date);
+                Log.e("PREFERENCES", "date " + date);
 
                 ScoreItem item = new ScoreItem();
                 item.name = name;
@@ -91,6 +95,10 @@ public class HighScoreActivity extends Activity {
         }
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

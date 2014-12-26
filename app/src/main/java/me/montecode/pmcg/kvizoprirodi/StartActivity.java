@@ -1,6 +1,7 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import info.hoang8f.widget.FButton;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class StartActivity extends Activity implements View.OnClickListener {
@@ -48,7 +50,7 @@ public class StartActivity extends Activity implements View.OnClickListener {
         highScoreButton.setOnClickListener(this);
         aboutProjectButton.setOnClickListener(this);
         startSurveyButton.setOnClickListener(this);
-
+//        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
         quizTitleTextView.setTypeface(myTypeface);
         quizTitleTextView.setTextSize(72);
@@ -57,7 +59,10 @@ public class StartActivity extends Activity implements View.OnClickListener {
 
 
     }
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
     private void startOfflineMod() {
         try {
             if (db.doesDatabaseExist(getApplicationContext(), "quizDB")) {

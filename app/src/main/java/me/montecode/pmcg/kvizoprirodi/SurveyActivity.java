@@ -1,8 +1,11 @@
 package me.montecode.pmcg.kvizoprirodi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.webkit.WebView;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class SurveyActivity extends ActionBarActivity {
@@ -18,7 +21,10 @@ public class SurveyActivity extends ActionBarActivity {
         surveyWebView.loadUrl("https://a1surveys.com/online-survey.php?surveyID=LIHINN_42ce990d");
     }
 
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.

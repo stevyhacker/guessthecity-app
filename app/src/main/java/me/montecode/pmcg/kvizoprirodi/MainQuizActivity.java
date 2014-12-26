@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -29,6 +30,7 @@ import java.util.Date;
 import java.util.Random;
 
 import info.hoang8f.widget.FButton;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class MainQuizActivity extends Activity implements View.OnClickListener {
@@ -68,7 +70,8 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.main_quiz_activity_layout);
         db = new DatabaseHelper(getApplicationContext());
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+//        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
         questionTextView = (TextView) findViewById(R.id.questionTextView);
         option4TextView = (TextView) findViewById(R.id.option4TextView);
         option1TextView = (TextView) findViewById(R.id.option1TextView);
@@ -81,6 +84,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         rightDownQuestionMarkImgView = (ImageView) findViewById(R.id.rightDownQuestionMarkImageView);
         rightUpQuestionMarkImgView = (ImageView) findViewById(R.id.rightUpQuestionMarkImageView);
         correctAnswersTextView = (TextView) findViewById(R.id.firstLevelCorrectAnswersTextView);
+        questionTextView.setTypeface(myTypeface);
         correctAnswersTextView.setText("Tačnih odgovora: 0");
 //        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
@@ -133,7 +137,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         startTimer();
 
     }
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
     public void setAnimations(long duration) {
         YoYo.with(Techniques.Shake)
                 .duration(duration)
