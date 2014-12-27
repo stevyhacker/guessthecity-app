@@ -53,7 +53,6 @@ public class StartActivity extends Activity implements View.OnClickListener {
 //        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
         quizTitleTextView.setTypeface(myTypeface);
-        quizTitleTextView.setTextSize(72);
 
         startOfflineMod();
 

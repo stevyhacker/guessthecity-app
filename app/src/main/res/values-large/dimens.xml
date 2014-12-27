@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="start_activity_app_title_size">72sp</dimen>
+    <dimen name="question_text_size">30sp</dimen>
+    <dimen name="answerOptionTextSize">20sp</dimen>
+
+</resources>

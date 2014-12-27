@@ -227,6 +227,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         correctAnswers = 0;
         answerOptionClicked = false;
         timeCounterHandler.removeCallbacks(secondsRunnable);
+        correctAnswersTextView.setText("Tačnih odgovora: " + String.valueOf(correctAnswers));
         setNewQuestion();
         startTimer();
         newGameDialog.cancel();

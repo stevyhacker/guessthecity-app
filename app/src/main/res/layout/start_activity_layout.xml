@@ -1,7 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -18,97 +17,103 @@
         android:adjustViewBounds="true"
         android:layout_alignParentTop="true" />
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_green_sea"
         android:layout_below="@id/logoBanerImgView"
-        android:layout_above="@+id/donatoriBanerImgView">
+        android:layout_above="@+id/donatoriBanerImgView"
+        android:background="@color/color_green_sea"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/quizTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="italic"
-            android:textColor="@color/white"
-            android:layout_margin="20dp"
-            android:text="Koliko znaš o prirodi?"
-            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/quizTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/start_activity_app_title_size"
+                android:textStyle="italic"
+                android:textColor="@color/white"
+                android:layout_margin="20dp"
+                android:text="Koliko znaš o prirodi?"
+                android:layout_centerHorizontal="true" />
 
 
-        <info.hoang8f.widget.FButton
-            android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:text=" Pokreni kviz "
-            android:layout_below="@id/quizTitleTextView"
-            android:id="@+id/startQuizButton"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            fbutton:cornerRadius="5dp" />
+            <info.hoang8f.widget.FButton
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:text=" Pokreni kviz "
+                android:layout_below="@id/quizTitleTextView"
+                android:id="@+id/startQuizButton"
+                android:textSize="@dimen/button_text_size"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                fbutton:buttonColor="@color/color_emerald"
+                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp" />
 
-        <info.hoang8f.widget.FButton
-            android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:text="   Rezultati   "
-            android:id="@+id/highScoreButton"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/startQuizButton"
-            android:layout_centerHorizontal="true"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            fbutton:cornerRadius="5dp" />
+            <info.hoang8f.widget.FButton
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:text="   Rezultati   "
+                android:id="@+id/highScoreButton"
+                android:textSize="@dimen/button_text_size"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/startQuizButton"
+                android:layout_centerHorizontal="true"
+                fbutton:buttonColor="@color/color_emerald"
+                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp" />
 
-        <info.hoang8f.widget.FButton
-            android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:text="  O projektu  "
-            android:id="@+id/aboutProjectButton"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:padding="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/highScoreButton"
-            android:layout_centerHorizontal="true"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            fbutton:cornerRadius="5dp" />
+            <info.hoang8f.widget.FButton
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:text="  O projektu  "
+                android:id="@+id/aboutProjectButton"
+                android:textSize="@dimen/button_text_size"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/highScoreButton"
+                android:layout_centerHorizontal="true"
+                fbutton:buttonColor="@color/color_emerald"
+                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp" />
 
-        <info.hoang8f.widget.FButton
-            android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:text="Anketa"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:padding="10dp"
-            android:layout_marginTop="30dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_centerHorizontal="true"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            fbutton:cornerRadius="5dp"
-            android:id="@+id/startActivitySurveyButton"
-            android:layout_below="@+id/aboutProjectButton"/>
+            <info.hoang8f.widget.FButton
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:text="Anketa"
+                android:textSize="@dimen/button_text_size"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_centerHorizontal="true"
+                fbutton:buttonColor="@color/color_emerald"
+                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp"
+                android:id="@+id/startActivitySurveyButton"
+                android:layout_below="@+id/aboutProjectButton" />
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
     <!--android:paddingTop="10dp"-->
     <!--android:paddingBottom="10dp"-->
     <!--android:paddingRight="10dp"-->
