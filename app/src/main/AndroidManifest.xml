@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.montecode.pmcg.kvizoprirodi" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="me.montecode.pmcg.kvizoprirodi">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="me.montecode.pmcg.kvizoprirodi.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        tools:replace="android:icon"
+        android:theme="@style/AppTheme">
         <activity
             android:name="me.montecode.pmcg.kvizoprirodi.StartActivity"
             android:label="@string/app_name"
-            android:screenOrientation="sensorPortrait" >
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,7 +25,7 @@
             android:name="me.montecode.pmcg.kvizoprirodi.MainQuizActivity"
             android:label="@string/title_activity_main_quiz"
             android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
-            android:screenOrientation="sensorPortrait" >
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
@@ -33,7 +34,7 @@
             android:name="me.montecode.pmcg.kvizoprirodi.HighScoreActivity"
             android:label="@string/title_activity_high_score"
             android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
-            android:screenOrientation="sensorPortrait" >
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
@@ -42,15 +43,14 @@
             android:name="me.montecode.pmcg.kvizoprirodi.AboutProjectActivity"
             android:label="@string/title_activity_about_project"
             android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
-            android:screenOrientation="sensorPortrait" >
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
         </activity>
         <activity
             android:name="me.montecode.pmcg.kvizoprirodi.SurveyActivity"
-            android:label="@string/title_activity_survey" >
-        </activity>
+            android:label="@string/title_activity_survey"></activity>
     </application>
 
 </manifest>

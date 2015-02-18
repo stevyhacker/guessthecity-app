@@ -39,23 +39,16 @@
     <item
         jar="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/exploded-aar/com.daimajia.androidanimations/library/1.1.2/classes.jar"
         jumboMode="false"
-        revision="21.1.1"
+        revision="21.0.2"
         sha1="85ccb558dc8258ecf4f0a19e97a3114ec2c64cb4">
         <dex dex="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/pre-dexed/debug/classes-a7a536c50e0a469c07284c6e612e8d1108d2705a.jar" />
     </item>
     <item
         jar="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/exploded-aar/com.daimajia.androidanimations/library/1.1.2/classes.jar"
         jumboMode="false"
-        revision="21.0.2"
+        revision="21.1.1"
         sha1="85ccb558dc8258ecf4f0a19e97a3114ec2c64cb4">
         <dex dex="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/pre-dexed/debug/classes-a7a536c50e0a469c07284c6e612e8d1108d2705a.jar" />
-    </item>
-    <item
-        jar="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
-        <dex dex="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/pre-dexed/debug/classes-1834877afbaefb418e565d233ca468e91a8cbdfb.jar" />
     </item>
     <item
         jar="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/exploded-aar/info.hoang8f/fbutton/1.0.5/classes.jar"
@@ -63,6 +56,13 @@
         revision="21.0.2"
         sha1="2c12397a785c3b1868fbebeffc9553457b27803f">
         <dex dex="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/pre-dexed/debug/classes-040ba05e3d2efc13ad302d33bb360879c05ca862.jar" />
+    </item>
+    <item
+        jar="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/home/stevyhacker/AndroidStudioProjects/Kvizkolikoznasoprirodi/app/build/intermediates/pre-dexed/debug/classes-1834877afbaefb418e565d233ca468e91a8cbdfb.jar" />
     </item>
     <item
         jar="/home/stevyhacker/Development/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
