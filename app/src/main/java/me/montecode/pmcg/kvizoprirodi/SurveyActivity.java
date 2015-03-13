@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -17,7 +18,12 @@ public class SurveyActivity extends ActionBarActivity {
 
         WebView surveyWebView = (WebView) findViewById(R.id.surveyWebView);
         surveyWebView.getSettings().setJavaScriptEnabled(true);
-
+        surveyWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
         surveyWebView.loadUrl("https://a1surveys.com/online-survey.php?surveyID=LIHINN_42ce990d");
     }
 
