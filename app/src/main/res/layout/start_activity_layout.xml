@@ -1,28 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingTop="5dp"
-    tools:context=".StartActivity">
+<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".StartActivity">
 
 
     <ImageView
+        android:id="@+id/logoBanerImgView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/logoBanerImgView"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_baner"
+        android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:layout_alignParentTop="true" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/baner2"/>
 
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/creatorTextView"
         android:layout_below="@id/logoBanerImgView"
-        android:layout_above="@+id/donatoriBanerImgView"
-        android:background="@color/color_green_sea"
-        android:layout_height="wrap_content">
+        android:background="@color/color_green_sea">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,84 +32,63 @@
                 android:id="@+id/quizTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/start_activity_app_title_size"
-                android:textStyle="italic"
-                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
                 android:layout_margin="20dp"
-                android:text="Koliko znaš o prirodi?"
-                android:layout_centerHorizontal="true" />
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/start_activity_app_title_size"
+                android:textStyle="italic"/>
 
 
             <info.hoang8f.widget.FButton
+                android:id="@+id/startQuizButton"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
-                android:text=" Pokreni kviz "
                 android:layout_below="@id/quizTitleTextView"
-                android:id="@+id/startQuizButton"
-                android:textSize="@dimen/button_text_size"
-                android:textColor="@color/white"
-                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:text=" Pokreni kviz "
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"
                 fbutton:buttonColor="@color/color_emerald"
+                fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/color_nephritis"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp" />
+                fbutton:shadowHeight="5dp"/>
 
             <info.hoang8f.widget.FButton
+                android:id="@+id/highScoreButton"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
-                android:text="   Rezultati   "
-                android:id="@+id/highScoreButton"
-                android:textSize="@dimen/button_text_size"
-                android:textColor="@color/white"
-                android:layout_marginTop="30dp"
                 android:layout_below="@+id/startQuizButton"
                 android:layout_centerHorizontal="true"
-                fbutton:buttonColor="@color/color_emerald"
-                fbutton:shadowColor="@color/color_nephritis"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp" />
-
-            <info.hoang8f.widget.FButton
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:text="  O projektu  "
-                android:id="@+id/aboutProjectButton"
-                android:textSize="@dimen/button_text_size"
+                android:layout_marginTop="35dp"
+                android:text="   Rezultati   "
                 android:textColor="@color/white"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_below="@+id/highScoreButton"
-                android:layout_centerHorizontal="true"
-                fbutton:buttonColor="@color/color_emerald"
-                fbutton:shadowColor="@color/color_nephritis"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp" />
-
-            <info.hoang8f.widget.FButton
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:text="Anketa"
                 android:textSize="@dimen/button_text_size"
-                android:textColor="@color/white"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_centerHorizontal="true"
                 fbutton:buttonColor="@color/color_emerald"
-                fbutton:shadowColor="@color/color_nephritis"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
                 fbutton:cornerRadius="5dp"
-                android:id="@+id/startActivitySurveyButton"
-                android:layout_below="@+id/aboutProjectButton" />
+                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"/>
+
+            <!--<info.hoang8f.widget.FButton-->
+            <!--android:layout_width="275dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="  O projektu  "-->
+            <!--android:id="@+id/aboutProjectButton"-->
+            <!--android:textSize="@dimen/button_text_size"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:layout_below="@+id/highScoreButton"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--fbutton:buttonColor="@color/color_emerald"-->
+            <!--fbutton:shadowColor="@color/color_nephritis"-->
+            <!--fbutton:shadowEnabled="true"-->
+            <!--fbutton:shadowHeight="5dp"-->
+            <!--fbutton:cornerRadius="5dp" />-->
+
 
         </RelativeLayout>
     </ScrollView>
@@ -119,12 +98,31 @@
     <!--android:paddingRight="10dp"-->
     <!--android:paddingLeft="10dp"-->
 
-    <ImageView
+    <TextView
+        android:id="@+id/creatorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/donatoriBanerImgView"
-        android:scaleType="centerInside"
-        android:src="@drawable/donatori_baner"
+        android:layout_above="@+id/separator"
+        android:background="@color/color_green_sea"
+        android:gravity="center_horizontal"
+        android:text="Created by MonteCode.me"
+        android:textColor="@color/white"/>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_above="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:layout_alignParentBottom="true" />
+        android:background="@color/color_green_sea"
+        android:scaleType="centerInside"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_id"/>
 </RelativeLayout>

@@ -1,7 +1,6 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,8 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class HighScoreActivity extends Activity {
@@ -95,10 +92,6 @@ public class HighScoreActivity extends Activity {
         }
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
-    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

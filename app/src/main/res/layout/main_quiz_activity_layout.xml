@@ -1,123 +1,107 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp"
-    android:background="@color/color_green_sea"
-    tools:context="me.montecode.pmcg.kvizoprirodi.MainQuizActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_green_sea"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                tools:context="me.montecode.pmcg.kvizoprirodi.MainQuizActivity">
 
-    <ScrollView
-        android:id="@+id/main_content_scroll_view"
-        android:layout_width="match_parent"
+    <!--<ScrollView-->
+    <!--android:id="@+id/main_content_scroll_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_above="@+id/firstLevelCorrectAnswersTextView">-->
+
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/firstLevelCorrectAnswersTextView">
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:text="Neki Sample Question Text"/>
 
-        <RelativeLayout
+    <FrameLayout
+        android:id="@+id/quizImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/optionsLinearLayout"
+        android:layout_below="@id/questionTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/quizBaseImageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/questionTextView"
-                android:textSize="@dimen/question_text_size"
-                tools:text="Neki Sample Question Text"
-                android:layout_alignParentTop="true"
-                android:textColor="@color/white"
-                android:layout_centerInParent="true" />
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_below="@id/questionTextView"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/quizImageView"
-                android:layout_margin="10dp"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/quizBaseImageView"
-                    android:adjustViewBounds="true" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rightDownQuestionMarkImageView"
-                    android:src="@drawable/maskota_pitanje_dolje_desno" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rightUpQuestionMarkImageView"
-                    android:src="@drawable/maskota_pitanje_gore_desno" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/leftDownQuestionMarkImageView"
-                    android:src="@drawable/maskota_pitanje_dolje_lijevo" />
-            </FrameLayout>
+            android:layout_height="match_parent"
+            />
+    </FrameLayout>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/option1TextView"
-                android:textSize="@dimen/answerOptionTextSize"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/quizImageView"
-                android:textColor="@color/white"
-                android:padding="10dp"
-                tools:text="Neki Sample Text"
-                android:gravity="center"
-                android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:id="@+id/optionsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/questionCounterTextView"
+        android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/option2TextView"
-                android:textSize="@dimen/answerOptionTextSize"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                tools:text="Neki Sample Text"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:layout_below="@+id/option1TextView" />
+        <TextView
+            android:id="@+id/option1TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Neki Sample Text"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/option3TextView"
-                android:textSize="@dimen/answerOptionTextSize"
-                android:textColor="@color/white"
-                tools:text="Neki Sample Text"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:layout_below="@+id/option2TextView"
-                android:gravity="center" />
+        <TextView
+            android:id="@+id/option2TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Neki Sample Text"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/option4TextView"
-                android:textSize="@dimen/answerOptionTextSize"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:layout_below="@+id/option3TextView"
-                tools:text="Neki Sample Text"
-                android:layout_margin="10dp"
-                android:gravity="center" />
+        <TextView
+            android:id="@+id/option3TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Neki Sample Text"/>
+
+        <TextView
+            android:id="@+id/option4TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/answerOptionTextSize"
+            tools:text="Neki Sample Text"/>
 
 
-        </RelativeLayout>
-    </ScrollView>
+    </LinearLayout>
+
+    <!--</ScrollView>-->
 
     <!--<RelativeLayout-->
     <!--android:layout_width="match_parent"-->
@@ -126,37 +110,37 @@
     <!--android:layout_height="wrap_content">-->
 
     <TextView
+        android:id="@+id/questionCounterTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textSize="@dimen/question_text_size"
-        tools:text="5/10"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:textColor="@color/white"
-        android:id="@+id/questionCounterTextView" />
+        android:textSize="18sp"
+        tools:text="5/10"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/question_text_size"
         android:id="@+id/timeCounterTextView"
-        tools:text="60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
+        android:layout_toLeftOf="@id/questionCounterTextView"
         android:textColor="@color/white"
-        android:layout_toLeftOf="@id/questionCounterTextView" />
+        android:textSize="18sp"
+        tools:text="60"/>
 
 
     <TextView
+        android:id="@+id/firstLevelCorrectAnswersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/question_text_size"
-        android:id="@+id/firstLevelCorrectAnswersTextView"
-        tools:text="Tačnih odgovora: 0"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"
-        android:textColor="@color/white" />
+        android:layout_margin="5dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:text="Tačnih odgovora: 0"/>
     <!--</RelativeLayout>-->
 </RelativeLayout>

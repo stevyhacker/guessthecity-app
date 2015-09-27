@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -30,7 +29,6 @@ import java.util.Date;
 import java.util.Random;
 
 import info.hoang8f.widget.FButton;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class MainQuizActivity extends Activity implements View.OnClickListener {
@@ -48,7 +46,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     int questionsCounter = 0;
     int correctAnswers = 0;
     private Runnable secondsRunnable;
-    AlertDialog newGameDialog, enterNameDialog,nextLevelDialog;
+    AlertDialog newGameDialog, enterNameDialog, nextLevelDialog;
     View newGameDialogView, enterNameDialogView, nextLevelDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
@@ -71,7 +69,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         db = new DatabaseHelper(getApplicationContext());
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
+//        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
         questionTextView = (TextView) findViewById(R.id.questionTextView);
         option4TextView = (TextView) findViewById(R.id.option4TextView);
         option1TextView = (TextView) findViewById(R.id.option1TextView);
@@ -80,11 +78,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
         timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
         baseImgView = (ImageView) findViewById(R.id.quizBaseImageView);
-        leftDownQuestionMarkImgView = (ImageView) findViewById(R.id.leftDownQuestionMarkImageView);
-        rightDownQuestionMarkImgView = (ImageView) findViewById(R.id.rightDownQuestionMarkImageView);
-        rightUpQuestionMarkImgView = (ImageView) findViewById(R.id.rightUpQuestionMarkImageView);
+//        leftDownQuestionMarkImgView = (ImageView) findViewById(R.id.leftDownQuestionMarkImageView);
+//        rightDownQuestionMarkImgView = (ImageView) findViewById(R.id.rightDownQuestionMarkImageView);
+//        rightUpQuestionMarkImgView = (ImageView) findViewById(R.id.rightUpQuestionMarkImageView);
         correctAnswersTextView = (TextView) findViewById(R.id.firstLevelCorrectAnswersTextView);
-        questionTextView.setTypeface(myTypeface);
+//        questionTextView.setTypeface(myTypeface);
         correctAnswersTextView.setText("Tačnih odgovora: 0");
 //        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
@@ -98,7 +96,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         newGameDialogView = inflater.inflate(R.layout.new_game_dialog_layout, null);
         enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout, null);
-        nextLevelDialogView = inflater.inflate(R.layout.next_level_dialog_layout,null);
+        nextLevelDialogView = inflater.inflate(R.layout.next_level_dialog_layout, null);
 
         scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
@@ -137,20 +135,17 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         startTimer();
 
     }
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
-    }
+
     public void setAnimations(long duration) {
-        YoYo.with(Techniques.Shake)
-                .duration(duration)
-                .playOn(rightDownQuestionMarkImgView);
-        YoYo.with(Techniques.Landing)
-                .duration(duration)
-                .playOn(rightUpQuestionMarkImgView);
-        YoYo.with(Techniques.Tada)
-                .duration(duration)
-                .playOn(leftDownQuestionMarkImgView);
+//        YoYo.with(Techniques.Shake)
+//                .duration(duration)
+//                .playOn(rightDownQuestionMarkImgView);
+//        YoYo.with(Techniques.Landing)
+//                .duration(duration)
+//                .playOn(rightUpQuestionMarkImgView);
+//        YoYo.with(Techniques.Tada)
+//                .duration(duration)
+//                .playOn(leftDownQuestionMarkImgView);
     }
 
     @Override
@@ -203,10 +198,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 newGameDialog.show();
                 break;
             case R.id.surveyButton:
-                Intent intent3 = new Intent(this, SurveyActivity.class);
-                startActivity(intent3);
-                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
-                break;
+//                Intent intent3 = new Intent(this, SurveyActivity.class);
+//                startActivity(intent3);
+//                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
+//                break;
             case R.id.continueLevelButton:
                 nextLevelDialog.cancel();
                 break;
@@ -261,22 +256,15 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         if (!currentQuestionItem.imageName.equalsIgnoreCase("default")) {
             try {
+                baseImgView.setVisibility(View.VISIBLE);
                 baseImgView.setImageBitmap(loadDataFromAsset(currentQuestionItem.imageName));
-                leftDownQuestionMarkImgView.setVisibility(View.GONE);
-                rightUpQuestionMarkImgView.setVisibility(View.GONE);
-                rightDownQuestionMarkImgView.setVisibility(View.GONE);
             } catch (IOException e) {
-                baseImgView.setImageDrawable(getResources().getDrawable(R.drawable.maskota_lupa));
-                leftDownQuestionMarkImgView.setVisibility(View.VISIBLE);
-                rightUpQuestionMarkImgView.setVisibility(View.VISIBLE);
-                rightDownQuestionMarkImgView.setVisibility(View.VISIBLE);
+                baseImgView.setVisibility(View.GONE);
                 e.printStackTrace();
             }
         } else {
-            baseImgView.setImageDrawable(getResources().getDrawable(R.drawable.maskota_lupa));
-            leftDownQuestionMarkImgView.setVisibility(View.VISIBLE);
-            rightUpQuestionMarkImgView.setVisibility(View.VISIBLE);
-            rightDownQuestionMarkImgView.setVisibility(View.VISIBLE);
+            baseImgView.setVisibility(View.GONE);
+
         }
 
         setAnimations(5000);
@@ -342,30 +330,26 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 break;
         }
 
-        if(option1TextView.getText().toString().equalsIgnoreCase("")){
+        if (option1TextView.getText().toString().equalsIgnoreCase("")) {
             option1TextView.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             option1TextView.setVisibility(View.VISIBLE);
         }
 
-        if(option2TextView.getText().toString().equalsIgnoreCase("")){
+        if (option2TextView.getText().toString().equalsIgnoreCase("")) {
             option2TextView.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             option2TextView.setVisibility(View.VISIBLE);
         }
 
-        if(option3TextView.getText().toString().equalsIgnoreCase("")){
+        if (option3TextView.getText().toString().equalsIgnoreCase("")) {
             option3TextView.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             option3TextView.setVisibility(View.VISIBLE);
         }
-        if(option4TextView.getText().toString().equalsIgnoreCase("")){
+        if (option4TextView.getText().toString().equalsIgnoreCase("")) {
             option4TextView.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             option4TextView.setVisibility(View.VISIBLE);
         }
 
@@ -378,10 +362,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 //            }
 //        }, 800);
         if (text.equals(currentQuestionAnswer)) {
-            Toast.makeText(this, "Tačan odgovor", Toast.LENGTH_SHORT).show();
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(getApplicationContext(), "Tačan odgovor", Toast.LENGTH_SHORT).show();
                     answerOption.setBackgroundResource(R.drawable.answeroption_green_drawable);
                     YoYo.with(Techniques.Flash)
                             .duration(500)
@@ -410,10 +395,10 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
             }, 1000);
             return true;
         } else {
-            Toast.makeText(this, "Netačan odgovor", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    Toast.makeText(getApplicationContext(), "Netačan odgovor", Toast.LENGTH_SHORT).show();
                     answerOption.setBackgroundResource(R.drawable.answeroption_red_drawable);
                     YoYo.with(Techniques.Shake)
                             .duration(500)
@@ -443,8 +428,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     }
 
     private void showNextLevelDialog() {
-        //TODO
-        switch (currentLevel){
+        switch (currentLevel) {
             default:
                 scorePointsThisLevelTextView.setText("Odgovorili ste tačno na " + String.valueOf(correctAnswers) + "/10" + " lakih pitanja.");
                 break;

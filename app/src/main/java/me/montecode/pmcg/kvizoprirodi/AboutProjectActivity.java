@@ -1,14 +1,11 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class AboutProjectActivity extends Activity {
@@ -25,10 +22,7 @@ public class AboutProjectActivity extends Activity {
                 .playOn(findViewById(R.id.aboutTextView));
 
     }
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
-    }
+
 //
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
