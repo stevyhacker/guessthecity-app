@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -48,7 +49,7 @@
         android:id="@+id/optionsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/questionCounterTextView"
+        android:layout_above="@+id/adView2"
         android:orientation="vertical">
 
         <TextView
@@ -101,46 +102,58 @@
 
     </LinearLayout>
 
-    <!--</ScrollView>-->
 
-    <!--<RelativeLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:id="@+id/bottom_relative_layout"-->
-    <!--android:layout_height="wrap_content">-->
 
-    <TextView
-        android:id="@+id/questionCounterTextView"
-        android:layout_width="wrap_content"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView2"
+        android:layout_above="@+id/bottombar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:text="5/10"/>
-
-    <TextView
-        android:id="@+id/timeCounterTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="5dp"
-        android:layout_toLeftOf="@id/questionCounterTextView"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:text="60"/>
+        android:adjustViewBounds="true"
+        android:background="@color/color_green_sea"
+        android:scaleType="centerInside"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_id"/>
 
 
-    <TextView
-        android:id="@+id/firstLevelCorrectAnswersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/bottombar"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="5dp"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:text="Tačnih odgovora: 0"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/questionCounterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="5/10"/>
+
+        <TextView
+            android:id="@+id/timeCounterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/questionCounterTextView"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="60"/>
+
+
+        <TextView
+            android:id="@+id/firstLevelCorrectAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="Tačnih odgovora: 0"/>
+
+
+    </RelativeLayout>
     <!--</RelativeLayout>-->
 </RelativeLayout>

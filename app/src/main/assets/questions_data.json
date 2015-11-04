@@ -1541,26 +1541,6 @@
             "option2": "",
             "option3": "",
             "image_name": "zrikavac2"
-        },
-        {
-            "id": "155",
-            "question": "Koliki je procenat ukupne površine teritorije Crne Gore prekriven šumom:",
-            "level": "2",
-            "answer": "preko 50 %",
-            "option1": "preko 20 %",
-            "option2": "preko 80 %",
-            "option3": "preko 30 %",
-            "image_name": "default"
-        },
-        {
-            "id": "156",
-            "question": "U Crnoj Gori je postoji jedna prašuma. To je:",
-            "level": "1",
-            "answer": "Biogradska gora",
-            "option1": "Tološka šuma",
-            "option2": "Kanjon Tare",
-            "option3": "Lovćen",
-            "image_name": "default"
         }
     ]
 }
