@@ -83,8 +83,8 @@
             <!--android:layout_marginTop="30dp"-->
             <!--android:layout_below="@+id/highScoreButton"-->
             <!--android:layout_centerHorizontal="true"-->
-            <!--fbutton:buttonColor="@color/color_emerald"-->
-            <!--fbutton:shadowColor="@color/color_nephritis"-->
+            <!--fbutton:buttonColor="@color/color_peter_river"-->
+            <!--fbutton:shadowColor="@color/color_midnight_blue"-->
             <!--fbutton:shadowEnabled="true"-->
             <!--fbutton:shadowHeight="5dp"-->
             <!--fbutton:cornerRadius="5dp" />-->

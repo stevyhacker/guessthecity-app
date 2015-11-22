@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="15dp"
-    android:background="@color/color_green_sea">
+    android:background="@color/color_belize_hole">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,8 +46,8 @@
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
+        fbutton:buttonColor="@color/color_peter_river"
+        fbutton:shadowColor="@color/color_midnight_blue"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
@@ -66,8 +66,8 @@
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
+        fbutton:buttonColor="@color/color_peter_river"
+        fbutton:shadowColor="@color/color_midnight_blue"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
@@ -87,8 +87,8 @@
         android:paddingRight="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        fbutton:buttonColor="@color/color_emerald"
-        fbutton:shadowColor="@color/color_nephritis"
+        fbutton:buttonColor="@color/color_peter_river"
+        fbutton:shadowColor="@color/color_midnight_blue"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
@@ -99,6 +99,6 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="wrap_content"-->
     <!--android:text="  "-->
-    <!--android:background="@color/color_green_sea"-->
+    <!--android:background="@color/color_belize_hole"-->
     <!--android:layout_marginBottom="15dp"/>-->
 </RelativeLayout>

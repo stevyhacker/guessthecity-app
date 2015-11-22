@@ -42,15 +42,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
         </activity>
-        <activity
-            android:name="me.montecode.pmcg.kvizoprirodi.AboutProjectActivity"
-            android:label="@string/title_activity_about_project"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
-            android:screenOrientation="sensorPortrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
-        </activity>
 
         <activity android:name="com.google.android.gms.ads.AdActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

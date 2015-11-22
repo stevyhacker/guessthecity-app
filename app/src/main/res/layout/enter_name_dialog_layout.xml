@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:background="@color/color_green_sea"
+    android:background="@color/color_belize_hole"
     android:layout_height="wrap_content">
 
     <TextView
@@ -45,8 +45,8 @@
             android:paddingRight="10dp"
             android:textColor="@color/white"
             android:id="@+id/cancelEnterNameDialogButton"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:buttonColor="@color/color_peter_river"
+            fbutton:shadowColor="@color/color_midnight_blue"
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp"
             android:layout_margin="10dp"
@@ -66,8 +66,8 @@
             android:textColor="@color/white"
             android:layout_alignBaseline="@+id/cancelEnterNameDialogButton"
             android:layout_toRightOf="@id/cancelEnterNameDialogButton"
-            fbutton:buttonColor="@color/color_emerald"
-            fbutton:shadowColor="@color/color_nephritis"
+            fbutton:buttonColor="@color/color_peter_river"
+            fbutton:shadowColor="@color/color_midnight_blue"
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp"
             fbutton:cornerRadius="5dp" />
