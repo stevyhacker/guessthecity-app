@@ -3,12 +3,14 @@ package me.montecode.pmcg.kvizoprirodi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -42,6 +44,9 @@ public class StartActivity extends Activity implements View.OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        ImageView logoImgView = (ImageView) findViewById(R.id.logoBanerImgView);
+        logoImgView.setOnClickListener(this);
+
 
         db = new DatabaseHelper(getApplicationContext());
 
@@ -58,7 +63,7 @@ public class StartActivity extends Activity implements View.OnClickListener {
 //        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
 
 
-       Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
+       Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/bitwise.ttf");
         quizTitleTextView.setTypeface(myTypeface);
 
         startOfflineMod();
@@ -120,7 +125,6 @@ public class StartActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            //TODO ADD ON MONTECODE IMAGE CLICK LINK TO WEBSITE / TEST FONTS
             case R.id.startQuizButton:
                 Intent intent1 = new Intent(this, MainQuizActivity.class);
                 startActivity(intent1);
@@ -132,7 +136,10 @@ public class StartActivity extends Activity implements View.OnClickListener {
                 startActivity(intent2);
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 break;
-
+            case R.id.logoBanerImgView:
+                Intent browserIntent = new Intent("android.intent.ACTION_VIEW", Uri.parse("http://montecode.me"));
+                startActivity(browserIntent);
+                break;
 //            case R.id.aboutProjectButton:
 //                Intent intent3 = new Intent(this, AboutProjectActivity.class);
 //                startActivity(intent3);

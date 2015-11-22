@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/creatorTextView"
         android:layout_below="@id/logoBanerImgView"
-        android:background="@color/color_green_sea">
+        android:background="@color/color_belize_hole">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,9 +50,9 @@
                 android:text=" Pokreni kviz "
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
-                fbutton:buttonColor="@color/color_emerald"
+                fbutton:buttonColor="@color/color_peter_river"
                 fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowColor="@color/color_midnight_blue"
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="5dp"/>
 
@@ -66,9 +66,9 @@
                 android:text="   Rezultati   "
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
-                fbutton:buttonColor="@color/color_emerald"
+                fbutton:buttonColor="@color/color_peter_river"
                 fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/color_nephritis"
+                fbutton:shadowColor="@color/color_midnight_blue"
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="5dp"/>
 
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/separator"
-        android:background="@color/color_green_sea"
+        android:background="@color/color_belize_hole"
         android:gravity="center_horizontal"
         android:text="Created by MonteCode.me"
         android:textColor="@color/white"/>
@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:background="@color/color_green_sea"
+        android:background="@color/color_belize_hole"
         android:scaleType="centerInside"
         ads:adSize="BANNER"
         ads:adUnitId="@string/admob_banner_id"/>
