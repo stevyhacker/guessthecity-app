@@ -1,9 +1,9 @@
 package me.montecode.pmcg.kvizoprirodi;
 
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ListView;
@@ -38,13 +38,13 @@ public class HighScoreActivity extends Activity {
         TextView titleScoresTextView = (TextView) findViewById(R.id.titleScoresTextView);
         TextView emptyText = new TextView(this);
         emptyText.setText("Još uvjek nema rezultata.");
+        emptyText.setGravity(Gravity.CENTER);
         emptyText.setTextColor(getResources().getColor(R.color.white));
         emptyText.setTextSize(25);
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
-        emptyText.setTypeface(myTypeface);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.BELOW, titleScoresTextView.getId());
         params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+        params.setMargins(0,25,0,0);
         emptyText.setLayoutParams(params);
         emptyText.setPadding(10, 10, 10, 10);
         ((ViewGroup) highScoreListView.getParent()).addView(emptyText);
