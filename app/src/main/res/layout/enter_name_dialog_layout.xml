@@ -24,6 +24,7 @@
         android:layout_below="@id/enterNameTitleTextView"
         android:maxLength="10"
         android:ems="10"
+        android:textColor="@color/white"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/enterNameEditText" />

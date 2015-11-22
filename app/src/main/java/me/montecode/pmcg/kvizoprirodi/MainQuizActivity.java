@@ -53,7 +53,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     TextView scoreTimeTextView, scorePointsTextView;
     FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
-    private FButton surveyButton;
     private EditText enterNameEditText;
     QuestionItem[] firstLevelQuestionArray;
     QuestionItem[] secondLevelQuestionArray;
@@ -104,7 +103,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
         newGameButton = (FButton) newGameDialogView.findViewById(R.id.newGameButton);
         highScoresButton = (FButton) newGameDialogView.findViewById(R.id.highScoresButton);
-        surveyButton = (FButton) newGameDialogView.findViewById(R.id.surveyButton);
 
         confirmEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.confirmEnterNameDialogButton);
         cancelEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.cancelEnterNameDialogButton);
@@ -115,7 +113,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         newGameButton.setOnClickListener(this);
         highScoresButton.setOnClickListener(this);
-        surveyButton.setOnClickListener(this);
         confirmEnterNameDialogButton.setOnClickListener(this);
         cancelEnterNameDialogButton.setOnClickListener(this);
         nextLevelButton.setOnClickListener(this);
@@ -203,7 +200,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 enterNameDialog.cancel();
                 newGameDialog.show();
                 break;
-            case R.id.surveyButton:
+//            case R.id.surveyButton:
 //                Intent intent3 = new Intent(this, SurveyActivity.class);
 //                startActivity(intent3);
 //                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);

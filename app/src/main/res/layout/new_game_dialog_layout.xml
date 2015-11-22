@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
@@ -57,7 +57,7 @@
     <info.hoang8f.widget.FButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sačuvaj rezultat"
+        android:text="Sačuvaj"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textSize="22sp"
@@ -75,26 +75,7 @@
         android:layout_alignBaseline="@+id/newGameButton"
         android:layout_toRightOf="@+id/newGameButton" />
 
-    <info.hoang8f.widget.FButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Anketa"
-        android:textSize="22sp"
-        android:textColor="@color/white"
-        android:padding="10dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        fbutton:buttonColor="@color/color_peter_river"
-        fbutton:shadowColor="@color/color_midnight_blue"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="5dp"
-        android:id="@+id/surveyButton"
-        android:layout_alignBaseline="@+id/highScoresButton"
-        android:layout_toRightOf="@+id/highScoresButton" />
+
     <!--<TextView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="wrap_content"-->
