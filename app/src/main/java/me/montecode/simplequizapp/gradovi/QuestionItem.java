@@ -1,4 +1,4 @@
-package me.montecode.simplequizapp.tehno;
+package me.montecode.simplequizapp.gradovi;
 
 /**
  * Created by stevyhacker on 23.7.14..

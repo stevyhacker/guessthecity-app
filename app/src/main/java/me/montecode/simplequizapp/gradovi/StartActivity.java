@@ -1,4 +1,4 @@
-package me.montecode.simplequizapp.tehno;
+package me.montecode.simplequizapp.gradovi;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -7,7 +7,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingTop="16dp"
-                tools:context="me.montecode.simplequizapp.tehno.MainQuizActivity">
+                tools:context="me.montecode.simplequizapp.gradovi.MainQuizActivity">
 
     <!--<ScrollView-->
     <!--android:id="@+id/main_content_scroll_view"-->

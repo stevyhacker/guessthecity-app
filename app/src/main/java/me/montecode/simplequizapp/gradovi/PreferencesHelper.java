@@ -1,4 +1,4 @@
-package me.montecode.simplequizapp.tehno;
+package me.montecode.simplequizapp.gradovi;
 
 import android.content.Context;
 import android.content.SharedPreferences;
