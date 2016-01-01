@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="me.montecode.pmcg.kvizoprirodi">
+    package="me.montecode.simplequizapp.tehno">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name="me.montecode.pmcg.kvizoprirodi.MyApplication"
+        android:name="me.montecode.simplequizapp.tehno.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         <meta-data android:name="com.google.android.gms.version"
                    android:value="@integer/google_play_services_version" />
         <activity
-            android:name="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:name="me.montecode.simplequizapp.tehno.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="sensorPortrait">
             <intent-filter>
@@ -25,22 +25,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="me.montecode.pmcg.kvizoprirodi.MainQuizActivity"
+            android:name="me.montecode.simplequizapp.tehno.MainQuizActivity"
             android:label="@string/title_activity_main_quiz"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:parentActivityName="me.montecode.simplequizapp.tehno.StartActivity"
             android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
+                android:value="me.montecode.simplequizapp.tehno.StartActivity" />
         </activity>
         <activity
-            android:name="me.montecode.pmcg.kvizoprirodi.HighScoreActivity"
+            android:name="me.montecode.simplequizapp.tehno.HighScoreActivity"
             android:label="@string/title_activity_high_score"
-            android:parentActivityName="me.montecode.pmcg.kvizoprirodi.StartActivity"
+            android:parentActivityName="me.montecode.simplequizapp.tehno.StartActivity"
             android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.montecode.pmcg.kvizoprirodi.StartActivity" />
+                android:value="me.montecode.simplequizapp.tehno.StartActivity" />
         </activity>
 
         <activity android:name="com.google.android.gms.ads.AdActivity"

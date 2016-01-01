@@ -32,8 +32,10 @@
                 android:id="@+id/quizTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/startQuizButton"
+                android:layout_alignStart="@+id/startQuizButton"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
                 android:textSize="@dimen/start_activity_app_title_size"
@@ -46,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/quizTitleTextView"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="50dp"
                 android:text=" Pokreni kviz "
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
@@ -110,9 +112,9 @@
 
     <View
         android:id="@+id/separator"
-        android:layout_above="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_above="@+id/adView"
         android:background="@color/white"/>
 
     <com.google.android.gms.ads.AdView
