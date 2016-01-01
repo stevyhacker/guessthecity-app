@@ -137,8 +137,7 @@ public class StartActivity extends Activity implements View.OnClickListener {
                 overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
                 break;
             case R.id.logoBanerImgView:
-                Intent browserIntent = new Intent("android.intent.ACTION_VIEW", Uri.parse("http://montecode.me"));
-                startActivity(browserIntent);
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.montecode.me")));
                 break;
 
         }
