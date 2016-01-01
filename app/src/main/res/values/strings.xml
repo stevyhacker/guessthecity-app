@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tehno kviz</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Pogodi grad</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_quiz">MainQuizActivity</string>
     <string name="title_activity_high_score">HighScoreActivity</string>
     <string name="title_activity_about_project">AboutProjectActivity</string>
-    <string name="title_activity_survey">Anketa</string>
 
     <string name="admob_banner_id">ca-app-pub-8314659346500868/6756230034</string>
     <string name="admob_interstitial_id">ca-app-pub-8314659346500868/8232963230</string>

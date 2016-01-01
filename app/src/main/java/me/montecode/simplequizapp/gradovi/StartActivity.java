@@ -53,17 +53,15 @@ public class StartActivity extends Activity implements View.OnClickListener {
         startQuizButton = (FButton) findViewById(R.id.startQuizButton);
         highScoreButton = (FButton) findViewById(R.id.highScoreButton);
 //        aboutProjectButton = (FButton) findViewById(R.id.aboutProjectButton);
-//        startSurveyButton = (FButton) findViewById(R.id.startActivitySurveyButton);
         quizTitleTextView = (TextView) findViewById(R.id.quizTitleTextView);
 
         startQuizButton.setOnClickListener(this);
         highScoreButton.setOnClickListener(this);
 //        aboutProjectButton.setOnClickListener(this);
-//        startSurveyButton.setOnClickListener(this);
 //        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
 
 
-       Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/bitwise.ttf");
+       Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/IndieFlower.ttf");
         quizTitleTextView.setTypeface(myTypeface);
 
         startOfflineMod();

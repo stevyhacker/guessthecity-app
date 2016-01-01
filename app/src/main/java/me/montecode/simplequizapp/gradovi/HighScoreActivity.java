@@ -1,6 +1,7 @@
 package me.montecode.simplequizapp.gradovi;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -36,6 +37,10 @@ public class HighScoreActivity extends Activity {
         highScoreListView.setAdapter(adapter);
 
         TextView titleScoresTextView = (TextView) findViewById(R.id.titleScoresTextView);
+
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/IndieFlower.ttf");
+        titleScoresTextView.setTypeface(myTypeface);
+
         TextView emptyText = new TextView(this);
         emptyText.setText("Još uvjek nema rezultata.");
         emptyText.setGravity(Gravity.CENTER);
