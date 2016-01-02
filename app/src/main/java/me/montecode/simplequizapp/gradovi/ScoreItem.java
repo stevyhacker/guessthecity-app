@@ -6,6 +6,4 @@ package me.montecode.simplequizapp.gradovi;
 public class ScoreItem {
 
     String name, result, date, correctAnswers, secondsCounter;
-    //TODO maybe ADD THESE VALUES
-
 }

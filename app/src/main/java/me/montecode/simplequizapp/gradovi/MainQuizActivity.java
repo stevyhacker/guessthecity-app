@@ -67,8 +67,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.main_quiz_activity_layout);
         db = new DatabaseHelper(getApplicationContext());
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/FontleroyBrown.ttf");
-//        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Courgette-Regular.ttf");
+
         questionTextView = (TextView) findViewById(R.id.questionTextView);
         option4TextView = (TextView) findViewById(R.id.option4TextView);
         option1TextView = (TextView) findViewById(R.id.option1TextView);
@@ -79,14 +78,11 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         baseImgView = (ImageView) findViewById(R.id.quizBaseImageView);
 
         correctAnswersTextView = (TextView) findViewById(R.id.firstLevelCorrectAnswersTextView);
-//        questionTextView.setTypeface(myTypeface);
         correctAnswersTextView.setText("Tačnih odgovora: 0");
-//        nextQuestionButton = (FButton) findViewById(R.id.nextQuestionButton);
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
         option3TextView.setOnClickListener(this);
         option4TextView.setOnClickListener(this);
-//        nextQuestionButton.setOnClickListener(this);
 
         questionCounterTextView.setText(String.valueOf(questionsCounter) + "/5");
         timeCounterTextView.setText(String.valueOf(secondsCounter));
@@ -121,7 +117,6 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         nextLevelDialog = new AlertDialog.Builder(this).create();
         nextLevelDialog.setView(nextLevelDialogView, 0, 0, 0, 0);
-//        nextLevelDialog.setCancelable(false);
 
         AdView mAdView = (AdView) findViewById(R.id.adView2);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -130,6 +125,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         firstLevelQuestionArray = getLevelQuestions(1);
         secondLevelQuestionArray = getLevelQuestions(2);
         thirdLevelQuestionArray = getLevelQuestions(3);
+
         setNewQuestion();
         startTimer();
 
@@ -196,17 +192,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
                 enterNameDialog.cancel();
                 newGameDialog.show();
                 break;
-//            case R.id.surveyButton:
-//                Intent intent3 = new Intent(this, SurveyActivity.class);
-//                startActivity(intent3);
-//                overridePendingTransition(R.anim.slide_in_from_left_animation, R.anim.slide_out_from_right_animation);
-//                break;
             case R.id.continueLevelButton:
                 nextLevelDialog.cancel();
                 break;
-//            case R.id.nextQuestionButton:
-//                setNewQuestion();
-//                break;
 
         }
     }
@@ -525,7 +513,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
 
         int lastId = allLevelQuestions.length;
         Random randomForQuestion = new Random();
-
+        //TODO check if it duplicates questions
         for (int i = 0; i < levelQuestionItems.length; i++) {
             int randomQuestionId = randomForQuestion.nextInt(lastId);
 
