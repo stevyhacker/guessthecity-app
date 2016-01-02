@@ -501,6 +501,46 @@
       "option2": "Stokholm",
       "option3": "Madrid",
       "image_name": "statueliberty"
+    },
+    {
+      "id": "51",
+      "question": "U kom gradu se nalazi toranj sa slike?",
+      "level": "1",
+      "answer": "Piza",
+      "option1": "Napulj",
+      "option2": "Venecija",
+      "option3": "Torino",
+      "image_name": "pisa"
+    },
+    {
+      "id": "52",
+      "question": "U kom gradu se nalazi ova katedrala?",
+      "level": "3",
+      "answer": "Pariz",
+      "option1": "Milan",
+      "option2": "Hamburg",
+      "option3": "Torino",
+      "image_name": "notredame"
+    },
+    {
+      "id": "53",
+      "question": "U kom gradu se nalazi muzej sa slike?",
+      "level": "2",
+      "answer": "Pariz",
+      "option1": "London",
+      "option2": "Berlin",
+      "option3": "Rim",
+      "image_name": "louvre"
+    },
+    {
+      "id": "54",
+      "question": "U kom gradu se nalazi fontana sa slike?",
+      "level": "2",
+      "answer": "Rim",
+      "option1": "Venecija",
+      "option2": "Brisel",
+      "option3": "Amsterdam",
+      "image_name": "fontanaditrevi"
     }
   ]
 }
