@@ -541,6 +541,106 @@
       "option2": "Brisel",
       "option3": "Amsterdam",
       "image_name": "fontanaditrevi"
+    },
+    {
+      "id": "55",
+      "question": "U kom gradu se nalazi zamak sa slike?",
+      "level": "3",
+      "answer": "Edinburg",
+      "option1": "Belfast",
+      "option2": "Jork",
+      "option3": "Dablin",
+      "image_name": "edinburghcastle"
+    },
+    {
+      "id": "56",
+      "question": "U kom gradu se nalazi ova palata?",
+      "level": "3",
+      "answer": "Madrid",
+      "option1": "Barselona",
+      "option2": "Pariz",
+      "option3": "Sevilja",
+      "image_name": "royalpalacemadrid"
+    },
+    {
+      "id": "57",
+      "question": "U kom gradu se nalazi ova palata?",
+      "level": "3",
+      "answer": "Granada",
+      "option1": "Sevilja",
+      "option2": "Malaga",
+      "option3": "Madrid",
+      "image_name": "alhambra"
+    },
+    {
+      "id": "58",
+      "question": "Gdje se nalazi ova tvrđava?",
+      "level": "2",
+      "answer": "Moskva",
+      "option1": "Minsk",
+      "option2": "Kijev",
+      "option3": "Sankt Peterburg",
+      "image_name": "kremlin"
+    },
+    {
+      "id": "59",
+      "question": "Gdje se nalazi skulptura sa slike?",
+      "level": "2",
+      "answer": "Čikago",
+      "option1": "Brisel",
+      "option2": "Šangaj",
+      "option3": "Kopenhagen",
+      "image_name": "cloudgate"
+    },
+    {
+      "id": "60",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "3",
+      "answer": "Sijetl",
+      "option1": "Hjuston",
+      "option2": "Vašington",
+      "option3": "Detroit",
+      "image_name": "spaceneedle"
+    },
+    {
+      "id": "61",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "1",
+      "answer": "Dubai",
+      "option1": "Nju Jork",
+      "option2": "Meksiko Siti",
+      "option3": "Šangaj",
+      "image_name": "burjkhalifa"
+    },
+    {
+      "id": "62",
+      "question": "Gdje se nalazi ovaj muzej?",
+      "level": "3",
+      "answer": "Bilbao",
+      "option1": "Barselona",
+      "option2": "Berlin",
+      "option3": "London",
+      "image_name": "gugenheim"
+    },
+    {
+      "id": "63",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "1",
+      "answer": "London",
+      "option1": "Los Anđeles",
+      "option2": "Peking",
+      "option3": "Sidnej",
+      "image_name": "londoneye"
+    },
+    {
+      "id": "64",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "2",
+      "answer": "Nju Jork",
+      "option1": "London",
+      "option2": "Pariz",
+      "option3": "Melburn",
+      "image_name": "flatiron"
     }
   ]
 }
