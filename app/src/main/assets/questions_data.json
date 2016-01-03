@@ -465,7 +465,7 @@
     {
       "id": "47",
       "question": "U kom gradu se nalazi ovaj pokretni most?",
-      "level": "2",
+      "level": "1",
       "answer": "London",
       "option1": "Nju Džersi",
       "option2": "Boston",
@@ -641,6 +641,16 @@
       "option2": "Pariz",
       "option3": "Melburn",
       "image_name": "flatiron"
+    },
+    {
+      "id": "65",
+      "question": "Blizu kog grada se nalaze piramide?",
+      "level": "1",
+      "answer": "Kairo",
+      "option1": "Bagdad",
+      "option2": "Tripoli",
+      "option3": "Marakeč",
+      "image_name": "piramidegiza"
     }
   ]
 }

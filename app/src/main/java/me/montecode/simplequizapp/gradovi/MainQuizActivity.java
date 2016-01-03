@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Random;
 
 import info.hoang8f.widget.FButton;
@@ -526,6 +527,18 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
             chosenIds[i] = randomQuestionId;
             levelQuestionItems[i] = (allLevelQuestions[randomQuestionId]);
         }
+
+        HashSet<Integer> pitanja = new HashSet<>();
+        for (int i = 0; i < chosenIds.length; i++) {
+            if (pitanja.add(chosenIds[i]) == false) {
+                int randomQuestionId = randomForQuestion.nextInt(lastId);
+                chosenIds[i] = randomQuestionId;
+                levelQuestionItems[i] = (allLevelQuestions[randomQuestionId]);
+                i = 0;
+                pitanja.clear();
+            }
+        }
+
 
         return levelQuestionItems;
     }
