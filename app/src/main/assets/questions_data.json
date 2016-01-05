@@ -124,7 +124,7 @@
     },
     {
       "id": "13",
-      "question": "Gdje se nalazi Zabaranjeni grad?",
+      "question": "Gdje se nalazi Zabranjeni grad?",
       "level": "2",
       "answer": "Peking",
       "option1": "Hong Kong",
@@ -651,6 +651,56 @@
       "option2": "Tripoli",
       "option3": "Marakeč",
       "image_name": "piramidegiza"
+    },
+    {
+      "id": "66",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "1",
+      "answer": "Nju Jork",
+      "option1": "Seul",
+      "option2": "Sijetl",
+      "option3": "Los Anđeles",
+      "image_name": "chryslerny"
+    },
+    {
+      "id": "67",
+      "question": "Gdje se nalazi građevina sa slike?",
+      "level": "2",
+      "answer": "Pariz",
+      "option1": "Lion",
+      "option2": "Dablin",
+      "option3": "Amsterdam",
+      "image_name": "savoyeparis"
+    },
+    {
+      "id": "68",
+      "question": "Gdje se nalazi ova bazilika?",
+      "level": "1",
+      "answer": "Rim",
+      "option1": "Pariz",
+      "option2": "Madrid",
+      "option3": "Berlin",
+      "image_name": "stpeterbasilica"
+    },
+    {
+      "id": "69",
+      "question": "Gdje se nalazi ova građevina?",
+      "level": "3",
+      "answer": "Nju Delhi",
+      "option1": "Sidnej",
+      "option2": "Nju Jork",
+      "option3": "Bilbao",
+      "image_name": "lotustemple"
+    },
+    {
+      "id": "70",
+      "question": "U kom gradu se nalazi hotel sa slike?",
+      "level": "2",
+      "answer": "Pjongjang",
+      "option1": "Seul",
+      "option2": "Šangaj",
+      "option3": "Hong Kong",
+      "image_name": "hotelpyongyang"
     }
   ]
 }
