@@ -21,8 +21,6 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -119,9 +117,9 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         nextLevelDialog = new AlertDialog.Builder(this).create();
         nextLevelDialog.setView(nextLevelDialogView, 0, 0, 0, 0);
 
-        AdView mAdView = (AdView) findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        AdView mAdView = (AdView) findViewById(R.id.adView2);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
         firstLevelQuestionArray = getLevelQuestions(1);
         secondLevelQuestionArray = getLevelQuestions(2);

@@ -10,11 +10,9 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,12 +20,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import info.hoang8f.widget.FButton;
-
 
 public class StartActivity extends Activity implements View.OnClickListener {
 
-    private FButton startQuizButton, highScoreButton;
+    private Button startQuizButton, highScoreButton;
     DatabaseHelper db;
     Functions functions = new Functions();
     private String offlineQuestionsJsonString;
@@ -40,9 +36,9 @@ public class StartActivity extends Activity implements View.OnClickListener {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.start_activity_layout);
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        AdView mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
         ImageView logoImgView = (ImageView) findViewById(R.id.logoBanerImgView);
         logoImgView.setOnClickListener(this);
@@ -50,8 +46,8 @@ public class StartActivity extends Activity implements View.OnClickListener {
 
         db = new DatabaseHelper(getApplicationContext());
 
-        startQuizButton = (FButton) findViewById(R.id.startQuizButton);
-        highScoreButton = (FButton) findViewById(R.id.highScoreButton);
+        startQuizButton = findViewById(R.id.startQuizButton);
+        highScoreButton = findViewById(R.id.highScoreButton);
 //        aboutProjectButton = (FButton) findViewById(R.id.aboutProjectButton);
         quizTitleTextView = (TextView) findViewById(R.id.quizTitleTextView);
 

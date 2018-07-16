@@ -108,7 +108,7 @@
         android:id="@+id/adView2"
         android:layout_above="@+id/bottombar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         ads:adSize="BANNER"

@@ -6,41 +6,40 @@
     android:background="@color/color_peter_river">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="19sp"
-        android:padding="10dp"
-        android:layout_margin="10dp"
-        tools:text="Stevan"
         android:id="@+id/scoreNameTextView"
-        android:layout_alignParentLeft="true"
-        />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:textColor="@color/white"
         android:textSize="19sp"
-        android:padding="10dp"
-        tools:text="500"
-        android:layout_margin="10dp"
-        android:id="@+id/scoreResultTextView"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@+id/scoreNameTextView"
-        />
+        tools:text="Stevan" />
+
     <TextView
+        android:id="@+id/scoreResultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/scoreNameTextView"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        tools:text="500" />
+
+    <TextView
+        android:id="@+id/scoreDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/scoreResultTextView"
+        android:gravity="right"
+        android:padding="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:padding="10dp"
-        tools:text="5.10.2014"
-        android:layout_margin="10dp"
-        android:id="@+id/scoreDateTextView"
-        android:gravity="right"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/scoreResultTextView"
-        />
+        tools:text="5.10.2014" />
 
 </RelativeLayout>
