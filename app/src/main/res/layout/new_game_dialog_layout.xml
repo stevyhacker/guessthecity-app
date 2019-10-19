@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/color_belize_hole"
-                android:padding="10dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/color_belize_hole"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/scorePointsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:text="Odgovorili ste na 5 tačnih pitanja."/>
+        tools:text="Odgovorili ste na 5 tačnih pitanja." />
 
     <TextView
         android:id="@+id/scoreTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/scorePointsTextView"
         android:layout_below="@+id/scorePointsTextView"
+        android:layout_alignLeft="@+id/scorePointsTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="18sp"
-        tools:text="Vaše vrijeme je 100 sekundi"/>
+        tools:text="Vaše vrijeme je 100 sekundi" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,48 +39,39 @@
         android:layout_below="@+id/scoreTimeTextView"
         android:orientation="horizontal">
 
-
-        <info.hoang8f.widget.FButton
-            android:layout_weight="0.5"
+        <Button
             android:id="@+id/newGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="0.5"
+            android:elevation="5dp"
             android:padding="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Nova igra"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            fbutton:buttonColor="@color/color_peter_river"
-            fbutton:cornerRadius="5dp"
-            fbutton:shadowColor="@color/color_midnight_blue"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            />
+            android:textSize="20sp" />
 
-        <info.hoang8f.widget.FButton
-            android:layout_weight="0.5"
+        <Button
             android:id="@+id/highScoresButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/newGameButton"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.5"
+            android:elevation="5dp"
             android:padding="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Sačuvaj"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            fbutton:buttonColor="@color/color_peter_river"
-            fbutton:cornerRadius="5dp"
-            fbutton:shadowColor="@color/color_midnight_blue"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"/>
+            android:textSize="20sp" />
+
     </LinearLayout>
 
 

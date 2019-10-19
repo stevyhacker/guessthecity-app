@@ -1,12 +1,9 @@
-<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                tools:context=".StartActivity">
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".StartActivity">
 
     <ImageView
         android:id="@+id/logoBanerImgView"
@@ -15,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/baner2"/>
+        android:src="@drawable/baner2" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,51 +23,46 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/quizTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
                 android:textSize="@dimen/start_activity_app_title_size"
-                android:textStyle="italic"/>
+                android:textStyle="bold" />
 
-
-            <info.hoang8f.widget.FButton
+            <Button
                 android:id="@+id/startQuizButton"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/quizTitleTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="75dp"
+                android:background="@color/green_background"
+                android:elevation="5dp"
                 android:text=" Pokreni kviz "
                 android:textColor="@color/white"
-                android:textSize="@dimen/button_text_size"
-                fbutton:buttonColor="@color/color_peter_river"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/color_midnight_blue"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"/>
+                android:textSize="@dimen/button_text_size" />
 
-            <info.hoang8f.widget.FButton
+            <Button
                 android:id="@+id/highScoreButton"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/startQuizButton"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="35dp"
+                android:background="@color/green_background"
+                android:elevation="5dp"
                 android:text="   Rezultati   "
                 android:textColor="@color/white"
-                android:textSize="@dimen/button_text_size"
-                fbutton:buttonColor="@color/color_peter_river"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/color_midnight_blue"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"/>
+                android:textSize="@dimen/button_text_size" />
 
             <!--<info.hoang8f.widget.FButton-->
             <!--android:layout_width="275dp"-->
@@ -106,24 +98,25 @@
         android:background="@color/color_belize_hole"
         android:gravity="center_horizontal"
         android:text="Created by MonteCode.me"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_above="@+id/adView"
-        android:background="@color/white"/>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
-        android:adjustViewBounds="true"
-        android:background="@color/color_belize_hole"
-        android:scaleType="centerInside"
-        ads:adSize="BANNER"
-        android:visibility="invisible"
-        ads:adUnitId="@string/admob_banner_id"/>
+        android:background="@color/white" />
+
+    <!--<com.google.android.gms.ads.AdView-->
+    <!--android:id="@+id/adView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:background="@color/color_belize_hole"-->
+    <!--android:scaleType="centerInside"-->
+    <!--ads:adSize="BANNER"-->
+    <!--android:visibility="invisible"-->
+    <!--ads:adUnitId="@string/admob_banner_id"/>-->
+
 </RelativeLayout>

@@ -90,7 +90,6 @@ public class HighScoreActivity extends Activity {
                 item.date = date;
 
                 highScoreValues.add(item);
-
             }
 
             adapter.notifyDataSetChanged();

@@ -29,8 +29,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 
-import info.hoang8f.widget.FButton;
-
 
 public class MainQuizActivity extends Activity implements View.OnClickListener {
     private DatabaseHelper db;
@@ -48,7 +46,7 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
     AlertDialog newGameDialog, enterNameDialog, nextLevelDialog;
     View newGameDialogView, enterNameDialogView, nextLevelDialogView;
     TextView scoreTimeTextView, scorePointsTextView;
-    FButton newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
+    Button newGameButton, highScoresButton, confirmEnterNameDialogButton, cancelEnterNameDialogButton;
     String dateTimeFormat = "dd.MM.yyyy HH:mm";
     private EditText enterNameEditText;
     QuestionItem[] firstLevelQuestionArray;
@@ -67,16 +65,16 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         db = new DatabaseHelper(getApplicationContext());
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        questionTextView = (TextView) findViewById(R.id.questionTextView);
-        option4TextView = (TextView) findViewById(R.id.option4TextView);
-        option1TextView = (TextView) findViewById(R.id.option1TextView);
-        option2TextView = (TextView) findViewById(R.id.option2TextView);
-        option3TextView = (TextView) findViewById(R.id.option3TextView);
-        questionCounterTextView = (TextView) findViewById(R.id.questionCounterTextView);
-        timeCounterTextView = (TextView) findViewById(R.id.timeCounterTextView);
-        baseImgView = (ImageView) findViewById(R.id.quizBaseImageView);
+        questionTextView = findViewById(R.id.questionTextView);
+        option4TextView = findViewById(R.id.option4TextView);
+        option1TextView = findViewById(R.id.option1TextView);
+        option2TextView = findViewById(R.id.option2TextView);
+        option3TextView = findViewById(R.id.option3TextView);
+        questionCounterTextView = findViewById(R.id.questionCounterTextView);
+        timeCounterTextView = findViewById(R.id.timeCounterTextView);
+        baseImgView = findViewById(R.id.quizBaseImageView);
 
-        correctAnswersTextView = (TextView) findViewById(R.id.firstLevelCorrectAnswersTextView);
+        correctAnswersTextView = findViewById(R.id.firstLevelCorrectAnswersTextView);
         correctAnswersTextView.setText("Tačnih odgovora: 0");
         option1TextView.setOnClickListener(this);
         option2TextView.setOnClickListener(this);
@@ -90,17 +88,17 @@ public class MainQuizActivity extends Activity implements View.OnClickListener {
         enterNameDialogView = inflater.inflate(R.layout.enter_name_dialog_layout, null);
         nextLevelDialogView = inflater.inflate(R.layout.next_level_dialog_layout, null);
 
-        scorePointsTextView = (TextView) newGameDialogView.findViewById(R.id.scorePointsTextView);
-        scoreTimeTextView = (TextView) newGameDialogView.findViewById(R.id.scoreTimeTextView);
-        newGameButton = (FButton) newGameDialogView.findViewById(R.id.newGameButton);
-        highScoresButton = (FButton) newGameDialogView.findViewById(R.id.highScoresButton);
+        scorePointsTextView = newGameDialogView.findViewById(R.id.scorePointsTextView);
+        scoreTimeTextView = newGameDialogView.findViewById(R.id.scoreTimeTextView);
+        newGameButton = newGameDialogView.findViewById(R.id.newGameButton);
+        highScoresButton = newGameDialogView.findViewById(R.id.highScoresButton);
 
-        confirmEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.confirmEnterNameDialogButton);
-        cancelEnterNameDialogButton = (FButton) enterNameDialogView.findViewById(R.id.cancelEnterNameDialogButton);
+        confirmEnterNameDialogButton = enterNameDialogView.findViewById(R.id.confirmEnterNameDialogButton);
+        cancelEnterNameDialogButton = enterNameDialogView.findViewById(R.id.cancelEnterNameDialogButton);
         enterNameEditText = (EditText) enterNameDialogView.findViewById(R.id.enterNameEditText);
 
         nextLevelButton = (Button) nextLevelDialogView.findViewById(R.id.continueLevelButton);
-        scorePointsThisLevelTextView = (TextView) nextLevelDialogView.findViewById(R.id.scorePointsThisLevelTextView);
+        scorePointsThisLevelTextView = nextLevelDialogView.findViewById(R.id.scorePointsThisLevelTextView);
 
         newGameButton.setOnClickListener(this);
         highScoresButton.setOnClickListener(this);

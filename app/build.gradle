@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "me.montecode.simplequizapp.gradovi"
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 5
-        versionName "1.0.2"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 7
+        versionName "2.0.1"
     }
     buildTypes {
         release {
@@ -20,13 +19,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'info.hoang8f:fbutton:1.0.5'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.easing:library:2.0@aar'
-    compile 'com.daimajia.androidanimations:library:2.2@aar'
-    compile 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.2@aar'
+
 }

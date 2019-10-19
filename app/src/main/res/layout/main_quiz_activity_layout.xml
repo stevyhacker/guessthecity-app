@@ -1,13 +1,15 @@
-<RelativeLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/color_belize_hole"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="16dp"
-                tools:context="me.montecode.simplequizapp.gradovi.MainQuizActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:background="@color/color_belize_hole"
+    android:gravity="center"
+    android:paddingLeft="8dp"
+    android:paddingTop="16dp"
+    android:paddingRight="8dp"
+    tools:context="me.montecode.simplequizapp.gradovi.MainQuizActivity">
 
     <!--<ScrollView-->
     <!--android:id="@+id/main_content_scroll_view"-->
@@ -23,48 +25,49 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="5dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        tools:text="Neki Sample Question Text"/>
+        tools:text="Neki Sample Question Text" />
 
     <FrameLayout
         android:id="@+id/quizImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/optionsLinearLayout"
-        android:layout_below="@id/questionTextView"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTextView"
         android:layout_centerHorizontal="true"
-        android:layout_margin="5dp">
+        android:layout_margin="8dp">
 
         <ImageView
             android:id="@+id/quizBaseImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop" />
 
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/optionsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/adView2"
+        android:layout_below="@id/quizImageView"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/option1TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Neki Sample Text"/>
+            tools:text="Neki Sample Text" />
 
         <TextView
             android:id="@+id/option2TextView"
@@ -75,7 +78,7 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Neki Sample Text"/>
+            tools:text="Neki Sample Text" />
 
         <TextView
             android:id="@+id/option3TextView"
@@ -86,7 +89,7 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Neki Sample Text"/>
+            tools:text="Neki Sample Text" />
 
         <TextView
             android:id="@+id/option4TextView"
@@ -97,29 +100,28 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="@dimen/answerOptionTextSize"
-            tools:text="Neki Sample Text"/>
+            tools:text="Neki Sample Text" />
 
 
     </LinearLayout>
 
 
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
-        android:layout_above="@+id/bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_id"/>
+    <!--<com.google.android.gms.ads.AdView-->
+    <!--android:id="@+id/adView2"-->
+    <!--android:layout_above="@+id/bottombar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:scaleType="centerInside"-->
+    <!--ads:adSize="BANNER"-->
+    <!--ads:adUnitId="@string/admob_banner_id"/>-->
 
 
     <RelativeLayout
         android:id="@+id/bottombar"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
         <TextView
             android:id="@+id/questionCounterTextView"
@@ -129,7 +131,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="5/10"/>
+            tools:text="5/10" />
 
         <TextView
             android:id="@+id/timeCounterTextView"
@@ -139,7 +141,7 @@
             android:layout_toLeftOf="@id/questionCounterTextView"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="60"/>
+            tools:text="60" />
 
 
         <TextView
@@ -150,7 +152,7 @@
             android:layout_margin="5dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            tools:text="Tačnih odgovora: 0"/>
+            tools:text="Tačnih odgovora: 0" />
 
 
     </RelativeLayout>

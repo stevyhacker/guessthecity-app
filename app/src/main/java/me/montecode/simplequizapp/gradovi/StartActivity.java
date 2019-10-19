@@ -23,12 +23,10 @@ import java.io.IOException;
 
 public class StartActivity extends Activity implements View.OnClickListener {
 
-    private Button startQuizButton, highScoreButton;
     DatabaseHelper db;
     Functions functions = new Functions();
     private String offlineQuestionsJsonString;
     private static final int OFFLINE_DATA = 100;
-    private TextView quizTitleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +38,16 @@ public class StartActivity extends Activity implements View.OnClickListener {
 //        AdRequest adRequest = new AdRequest.Builder().build();
 //        mAdView.loadAd(adRequest);
 
-        ImageView logoImgView = (ImageView) findViewById(R.id.logoBanerImgView);
+        ImageView logoImgView =  findViewById(R.id.logoBanerImgView);
         logoImgView.setOnClickListener(this);
 
 
         db = new DatabaseHelper(getApplicationContext());
 
-        startQuizButton = findViewById(R.id.startQuizButton);
-        highScoreButton = findViewById(R.id.highScoreButton);
+        Button startQuizButton = findViewById(R.id.startQuizButton);
+        Button highScoreButton = findViewById(R.id.highScoreButton);
 //        aboutProjectButton = (FButton) findViewById(R.id.aboutProjectButton);
-        quizTitleTextView = (TextView) findViewById(R.id.quizTitleTextView);
+        TextView quizTitleTextView = findViewById(R.id.quizTitleTextView);
 
         startQuizButton.setOnClickListener(this);
         highScoreButton.setOnClickListener(this);
@@ -105,7 +103,6 @@ public class StartActivity extends Activity implements View.OnClickListener {
                         questionItem.option3 = questionJsonObject.getString("option3");
                         questionItem.imageName = questionJsonObject.getString("image_name");
 
-
                         db.addQuestion(questionItem);
                     }
 
@@ -136,8 +133,4 @@ public class StartActivity extends Activity implements View.OnClickListener {
 
         }
     }
-
-
-
-
 }

@@ -1,77 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:background="@color/color_belize_hole"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/color_belize_hole">
 
     <TextView
+        android:id="@+id/enterNameTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="28sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
-        android:id="@+id/enterNameTitleTextView"
-        android:layout_centerHorizontal="true"
-        android:text="Unesite vaše ime" />
+        android:text="Unesite vaše ime"
+        android:textColor="@color/white"
+        android:textSize="28sp" />
 
     <EditText
+        android:id="@+id/enterNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/enterNameTitleTextView"
-        android:maxLength="10"
-        android:ems="10"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/enterNameEditText" />
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:maxLength="10"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/enterNameEditText">
+        android:layout_below="@id/enterNameEditText"
+        android:orientation="horizontal">
 
-        <info.hoang8f.widget.FButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Odustani"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textSize="22sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@color/white"
+        <Button
             android:id="@+id/cancelEnterNameDialogButton"
-            fbutton:buttonColor="@color/color_peter_river"
-            fbutton:shadowColor="@color/color_midnight_blue"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            android:layout_margin="10dp"
-            fbutton:cornerRadius="5dp" />
-
-        <info.hoang8f.widget.FButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Potvrdi"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/confirmEnterNameDialogButton"
-            android:textSize="22sp"
-            android:paddingLeft="10dp"
             android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:text="Odustani"
             android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/confirmEnterNameDialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/cancelEnterNameDialogButton"
+            android:layout_margin="10dp"
             android:layout_toRightOf="@id/cancelEnterNameDialogButton"
-            fbutton:buttonColor="@color/color_peter_river"
-            fbutton:shadowColor="@color/color_midnight_blue"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            fbutton:cornerRadius="5dp" />
+            android:layout_weight="1"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Potvrdi"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
     </LinearLayout>
 

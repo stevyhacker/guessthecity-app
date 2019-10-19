@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="me.montecode.simplequizapp.gradovi">
+    package="me.montecode.simplequizapp.gradovi"
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="me.montecode.simplequizapp.gradovi.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon"
-        android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.gms.version"
-                   android:value="@integer/google_play_services_version" />
+        >
         <activity
             android:name="me.montecode.simplequizapp.gradovi.StartActivity"
             android:label="@string/app_name"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,24 +30,25 @@
             android:name="me.montecode.simplequizapp.gradovi.MainQuizActivity"
             android:label="@string/title_activity_main_quiz"
             android:parentActivityName="me.montecode.simplequizapp.gradovi.StartActivity"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.montecode.simplequizapp.gradovi.StartActivity" />
+                android:value="me.montecode.simplequizapp.gradovi.StartActivity"
+                />
         </activity>
         <activity
             android:name="me.montecode.simplequizapp.gradovi.HighScoreActivity"
             android:label="@string/title_activity_high_score"
             android:parentActivityName="me.montecode.simplequizapp.gradovi.StartActivity"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.montecode.simplequizapp.gradovi.StartActivity" />
+                android:value="me.montecode.simplequizapp.gradovi.StartActivity"
+                />
         </activity>
 
-        <activity android:name="com.google.android.gms.ads.AdActivity"
-                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-                  android:theme="@android:style/Theme.Translucent" />
     </application>
 
 </manifest>
