@@ -1,4 +1,4 @@
-# Pogodi grad kviz
+# Guess the city quiz
 First version of my picture quiz android application. 
 
 Download here:
